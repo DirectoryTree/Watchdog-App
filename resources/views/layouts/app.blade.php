@@ -10,11 +10,10 @@
 @endpush
 
 @section('body')
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark py-3">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm py-3">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img alt="Watchdog Logo" src="{{ asset('img/logo.svg') }}"/>
-                <i class="fa fa-chart-line"></i> {{ config('app.name', 'Watchdog') }}
+                <img alt="Watchdog Logo" width="175" src="{{ asset('img/logo.svg') }}"/>
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#app-nav">
@@ -22,15 +21,6 @@
             </button>
 
             <div class="collapse navbar-collapse" id="app-nav">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('reports.*') ? 'active' : null }}" href="#">
-                            {{ __('Domains') }}
-                        </a>
-                    </li>
-                </ul>
-
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->

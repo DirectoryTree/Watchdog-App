@@ -31,8 +31,8 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
 // Application routes...
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', 'WatchersController@index')->name('watchers.index');
+    Route::post('/scan', 'WatchersController@scan')->name('watchers.scan');
+    Route::get('/{watcher}', 'WatchersController@show')->name('watchers.show');
 });
-
-Route::get('/home', 'HomeController@index')->name('home');

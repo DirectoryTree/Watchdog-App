@@ -3678,12 +3678,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DirectoryTree/Watchdog.git",
-                "reference": "5130a12cfdaf965037129207818046ca9b02bd99"
+                "reference": "b4630f5b573ec3ef955e17d3aded32629ce912cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DirectoryTree/Watchdog/zipball/5130a12cfdaf965037129207818046ca9b02bd99",
-                "reference": "5130a12cfdaf965037129207818046ca9b02bd99",
+                "url": "https://api.github.com/repos/DirectoryTree/Watchdog/zipball/b4630f5b573ec3ef955e17d3aded32629ce912cd",
+                "reference": "b4630f5b573ec3ef955e17d3aded32629ce912cd",
                 "shasum": ""
             },
             "require": {
@@ -3719,7 +3719,7 @@
                 "ldap",
                 "monitoring"
             ],
-            "time": "2020-03-27T17:26:36+00:00"
+            "time": "2020-03-27T23:15:42+00:00"
         },
         {
             "name": "doctrine/instantiator",
