@@ -21,12 +21,16 @@
                     <div class="list-group list-group-flush">
                         <div class="list-group-item">
                             <div class="d-flex justify-content-between align-items-center">
-                                <h4>{{ \Illuminate\Support\Str::studly($watcher->name) }}</h4>
+                                <h4 class="mb-0">{{ \Illuminate\Support\Str::studly($watcher->name) }}</h4>
 
-                                <a href="#" class="btn btn-light shadow-sm stretched-link">
+                                <a href="{{ route('watchers.show', $watcher) }}" class="btn btn-light shadow-sm stretched-link">
                                     View Watcher
                                 </a>
                             </div>
+                        </div>
+
+                        <div class="list-group-item">
+                            <h5 class="text-muted">{{ $watcher->changes()->count() }} total changes.</h5>
                         </div>
 
                         <div class="list-group-item">

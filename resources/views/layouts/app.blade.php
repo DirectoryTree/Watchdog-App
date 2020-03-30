@@ -5,7 +5,7 @@
 @endpush
 
 @push('styles')
-{{--    <livewire:styles></livewire:styles>--}}
+    <livewire:styles></livewire:styles>
     <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet">
 @endpush
 
@@ -33,12 +33,12 @@
                         </li>
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a class="nav-link dropdown-toggle h5 mb-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-user-circle"></i>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
@@ -58,11 +58,13 @@
 
     <main class="py-4">
         <div class="container">
+            @yield('breadcrumbs')
+
             @yield('content')
         </div>
     </main>
 
-{{--    <livewire:scripts></livewire:scripts>--}}
+    <livewire:scripts></livewire:scripts>
 
 {{--    @foreach (session('flash_notification', collect())->toArray() as $message)--}}
 {{--        <script>--}}
