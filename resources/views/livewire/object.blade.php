@@ -2,9 +2,9 @@
     <div class="d-flex justify-content-between align-items-center">
         <div class="flex-shrink-1 mr-2">
             @if($object->type == 'container')
-                <a href="#" class="btn btn-sm btn-light shadow-sm" wire:click="loadChildren">
+                <button class="btn btn-sm btn-light shadow-sm" wire:click="loadChildren">
                     <i class="fas fa-{{ $expanded ? 'minus' : 'plus' }}"></i>
-                </a>
+                </button>
             @else
                 <button class="btn btn-sm btn-light shadow-sm text-muted" disabled>
                     <i class="fas fa-minus"></i>
@@ -12,19 +12,27 @@
             @endif
         </div>
 
-        <div class="flex-grow-1 d-flex justify-content-between">
-            {{ $object->name }}
+        <div class="flex-grow-1 d-flex justify-content-between align-items-center">
+            <div class="flex-grow-1">
+                @include('watchers.objects.icon') {{ $object->name }}
 
-{{--            <div class="spinner-grow text-primary" role="status">--}}
-{{--                <span class="sr-only">Loading...</span>--}}
-{{--            </div>--}}
+                <div class="overflow-auto">
+                    @if($searching && $object->parent)
+                        <small class="text-muted">
+                            ({{ $object->parent->dn }})
+                        </small>
+                    @endif
+                </div>
+            </div>
+
+            <div class="flex-shrink-1">
+                <a href="{{ route('watchers.objects.show', [$watcher, $object]) }}" class="btn btn-sm btn-light shadow-sm">View</a>
+            </div>
         </div>
     </div>
 
     @if(count($children) > 0)
         <hr/>
-
-        <h6 class="text-muted">{{ $object->dn }}</h6>
 
         <div class="list-group mt-2">
             @foreach($children as $child)

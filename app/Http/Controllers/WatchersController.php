@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\WatchdogRepository;
 use DirectoryTree\Watchdog\Watchdog;
 use DirectoryTree\Watchdog\LdapWatcher;
 use Illuminate\Support\Facades\Artisan;
@@ -29,15 +30,18 @@ class WatchersController extends Controller
      */
     public function show(LdapWatcher $watcher)
     {
-        $watchdogs = collect(
-            config("watchdog.watch.{$watcher->model}", [])
-        )->transform(function ($watchdog) {
-            return app($watchdog);
-        })->mapWithKeys(function (Watchdog $watchdog) {
-            $createdToday = $watchdog->notifications()->whereDate('created_at', today())->get();
+        $watchdogs = (new WatchdogRepository($watcher))
+            ->get()
+            ->mapWithKeys(function (Watchdog $watchdog) {
+                $createdToday = $watchdog->notifications()->whereDate('created_at', today())->get();
 
-            return [$watchdog->getName() => $createdToday];
-        });
+                return [
+                    $watchdog->getKey() => [
+                        'watchdog' => $watchdog,
+                        'today' => $createdToday,
+                    ]
+                ];
+            });
 
         return view('watchers.show', [
             'watcher' => $watcher,

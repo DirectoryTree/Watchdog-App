@@ -12,15 +12,18 @@ class WatcherObject extends Component
 
     public $object;
 
+    public $searching = false;
+
     public $expanded = false;
 
     public $children;
 
-    public function mount(LdapWatcher $watcher, LdapObject $object)
+    public function mount(LdapWatcher $watcher, LdapObject $object, $searching = false)
     {
         $this->watcher = $watcher;
         $this->object = $object;
         $this->children = [];
+        $this->searching = $searching;
     }
 
     public function loadChildren()

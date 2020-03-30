@@ -1,10 +1,9 @@
 <?php
 
-Breadcrumbs::for('watchers.index', function ($trail) {
-    $trail->push('Watchers', route('watchers.index'));
-});
+Breadcrumbs::for('watchers.objects.show', function ($trail, $watcher, $object) {
+    if ($object->parent) {
+        $trail->parent('watchers.objects.show', $watcher, $object->parent);
+    }
 
-Breadcrumbs::for('watchers.show', function ($trail, $watcher) {
-    $trail->parent('watchers.index');
-    $trail->push($watcher->name, route('about'));
+    $trail->push($object->name, route('watchers.objects.show', [$watcher, $object]));
 });

@@ -1,6 +1,32 @@
 @extends('watchers.layout')
 
 @section('page')
+    <form class="mb-2">
+        <div class="form-row">
+            <div class="col-md-8">
+                <input type="search" class="form-control shadow-sm" placeholder="Search for objects...">
+            </div>
+
+            <div class="col-3">
+                <div class="input-group rounded shadow-sm">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text">Attribute</label>
+                    </div>
+
+                    <select class="custom-select">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col">
+                <button type="submit" class="btn btn-block btn-primary shadow-sm">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
     <div class="table-responsive bg-white shadow-sm rounded">
         <table class="table mb-0">
             <thead>
@@ -18,7 +44,7 @@
                 <tr>
                     <td class="align-middle text-center">{{ $change->id }}</td>
                     <td class="align-middle">
-                        <a href="{{ route('watchers.objects.show',[$watcher, $change]) }}">
+                        <a href="{{ route('watchers.objects.show',[$watcher, $change->object]) }}">
                             {{ $change->object->name }}
                         </a>
                     </td>
