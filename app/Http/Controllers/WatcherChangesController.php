@@ -28,11 +28,16 @@ class WatcherChangesController extends Controller
             [$change->attribute => $change->after])
         )->transform();
 
+        $removed = array_diff($before[$change->attribute], $after[$change->attribute]);
+        $added = array_diff($after[$change->attribute], $before[$change->attribute]);
+
         return view('watchers.changes.show', [
             'watcher' => $watcher,
             'change' => $change,
             'before' => Arr::first($before),
             'after' => Arr::first($after),
+            'removed' => $removed,
+            'added' => $added,
         ]);
     }
 }

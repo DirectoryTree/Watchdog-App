@@ -37,22 +37,44 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="bg-danger text-monospace rounded p-2">
+                        <table class="table bg-secondary rounded overflow-hidden shadow-sm">
+                            <thead>
+                                <tr class="text-center text-uppercase text-muted">
+                                    <th>Before</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                             @forelse($before as $value)
-                                {{ $value }}
+                                <tr class="{{ in_array($value, $removed) ? 'bg-danger' : '' }}">
+                                    <td>{{ $value }}</td>
+                                </tr>
                             @empty
-                                <em>No value.</em>
+                                <tr>
+                                    <td><em>No value.</em></td>
+                                </tr>
                             @endforelse
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="col-md-6">
-                        <div class="bg-success text-monospace rounded p-2">
+                        <table class="table bg-secondary rounded overflow-hidden shadow-sm">
+                            <thead>
+                                <tr class="text-center text-uppercase text-muted">
+                                    <th>After</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                             @forelse($after as $value)
-                                {{ $value }}
+                                <tr class="{{ in_array($value, $added) ? 'bg-success' : '' }}">
+                                    <td>{{ $value }}</td>
+                                </tr>
                             @empty
-                                <em>No value.</em>
+                                <tr>
+                                    <td><em>No value.</em></td>
+                                </tr>
                             @endforelse
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
