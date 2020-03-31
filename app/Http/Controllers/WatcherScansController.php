@@ -10,7 +10,6 @@ class WatcherScansController extends Controller
     {
         return view('watchers.scans.index', [
             'watcher' => $watcher,
-            'scans' => $watcher->scans()->latest()->paginate(10),
         ]);
     }
 }
