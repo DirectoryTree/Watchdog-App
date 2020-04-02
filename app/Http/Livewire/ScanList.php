@@ -12,20 +12,34 @@ class ScanList extends Component
 
     public $watcher;
 
-    public function paginationView()
-    {
-        return 'pagination::bootstrap-4';
-    }
+    public $type;
 
     public function mount(LdapWatcher $watcher)
     {
         $this->watcher = $watcher;
+        $this->type = request()->query('type', $this->type);
     }
 
     public function render()
     {
+        $query = $this->watcher->scans()->latest();
+
+        switch(request('type')) {
+            case 'successful':
+                $query->where('success', '=', true);
+                break;
+            case 'error':
+                $query->where('success', '=', false);
+                break;
+        }
+
         return view('livewire.scan-list', [
-            'scans' => $this->watcher->scans()->latest()->paginate(10)
+            'scans' => $query->paginate(10)
         ]);
+    }
+
+    public function paginationView()
+    {
+        return 'pagination::bootstrap-4';
     }
 }

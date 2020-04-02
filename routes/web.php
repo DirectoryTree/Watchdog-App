@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/{watcher}/watchdog/{watchdog}', 'WatcherDogsController@show')->name('watchers.dogs.show');
 
     Route::get('/{watcher}/scans', 'WatcherScansController@index')->name('watchers.scans.index');
+    Route::post('/{watcher}/scans/start', 'WatcherScansController@start')->name('watchers.scans.start');
+
     Route::get('/{watcher}/changes', 'WatcherChangesController@index')->name('watchers.changes.index');
     Route::get('/{watcher}/changes/{change}', 'WatcherChangesController@show')->name('watchers.changes.show');
 
