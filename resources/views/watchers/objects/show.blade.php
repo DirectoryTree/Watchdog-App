@@ -1,7 +1,7 @@
 @extends('watchers.objects.layout')
 
 @section('tab')
-    <div class="row">
+    <div class="row mb-4">
         <div class="col">
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
@@ -33,4 +33,12 @@
             </div>
         </div>
     </div>
+
+    @if($object->children()->count() > 0)
+        <h3>Nested Objects</h3>
+
+        <div class="list-group">
+            <livewire:watcher-object :watcher="$watcher" :object="$object" :searching="!empty($search)" :key="$object->id"></livewire:watcher-object>
+        </div>
+    @endif
 @endsection

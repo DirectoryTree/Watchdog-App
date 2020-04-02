@@ -2,17 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\WatchdogRepository;
+use DirectoryTree\Watchdog\Watchdog;
 use DirectoryTree\Watchdog\LdapWatcher;
 
 class WatcherDogsController extends Controller
 {
-    public function show(LdapWatcher $watcher, $name)
+    public function show(LdapWatcher $watcher, Watchdog $watchdog)
     {
-        $watchdog = (new WatchdogRepository($watcher))->find($name);
-
-        abort_if(is_null($watchdog), 404);
-
         $notifications = $watchdog->notifications()
             ->with('object')
             ->latest()

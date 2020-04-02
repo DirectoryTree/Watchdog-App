@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\WatchdogRepository;
+use DirectoryTree\Watchdog\Watchdog;
+use DirectoryTree\Watchdog\LdapWatcher;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +33,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Route::bind('watchdog', function($value, \Illuminate\Routing\Route $route)
+        {
+            $watcher = LdapWatcher::findOrFail($route->parameter('watcher'));
+
+            $watchdog = (new WatchdogRepository($watcher))->find($value);
+
+            abort_if(!$watchdog instanceof Watchdog, 404);
+
+            return $watchdog;
+        });
 
         parent::boot();
     }

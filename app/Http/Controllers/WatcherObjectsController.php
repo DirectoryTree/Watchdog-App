@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\WatchdogRepository;
 use DirectoryTree\Watchdog\Ldap\Transformers\AttributeTransformer;
 use DirectoryTree\Watchdog\LdapWatcher;
 
@@ -45,6 +46,20 @@ class WatcherObjectsController extends Controller
             'watcher' => $watcher,
             'object' => $object,
             'changes' => $object->changes()->latest()->paginate(10),
+        ]);
+    }
+
+    public function notifications(LdapWatcher $watcher, $objectId)
+    {
+        $object = $watcher->objects()->findOrFail($objectId);
+
+        $watchdogs = new WatchdogRepository($watcher);
+
+        return view('watchers.objects.notifications',[
+            'watcher' => $watcher,
+            'object' => $object,
+            'watchdogs' => $watchdogs,
+            'notifications' => $object->notifications()->latest()->paginate(10),
         ]);
     }
 }

@@ -71,10 +71,19 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'ldap' => [
+            'driver' => 'ldap',
+            'model' => App\Ldap\User::class,
+            'rules' => [],
+            'database' => [
+                'model' => App\User::class,
+                'sync_passwords' => false,
+                'sync_attributes' => [
+                    'name' => 'cn',
+                    'email' => 'mail',
+                ],
+            ],
+        ],
     ],
 
     /*

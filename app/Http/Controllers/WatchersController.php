@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\WatchdogRepository;
 use DirectoryTree\Watchdog\Watchdog;
 use DirectoryTree\Watchdog\LdapWatcher;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 
 class WatchersController extends Controller
@@ -47,6 +48,37 @@ class WatchersController extends Controller
             'watcher' => $watcher,
             'watchdogs' => $watchdogs,
         ]);
+    }
+
+    /**
+     * Displays the form for editing the watcher.
+     *
+     * @param LdapWatcher $watcher
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(LdapWatcher $watcher)
+    {
+        return view('watchers.edit', [
+            'watcher' => $watcher,
+        ]);
+    }
+
+    /**
+     * Updates the watcher.
+     *
+     * @param LdapWatcher $watcher
+     * @param Request     $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(LdapWatcher $watcher, Request $request)
+    {
+        $validated = $request->validate(['name' => 'required']);
+
+        $watcher->update(['name' => $validated['name']]);
+
+        return redirect()->route('watchers.index');
     }
 
     public function scan()

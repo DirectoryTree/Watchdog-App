@@ -24,7 +24,7 @@
                                 <h4 class="mb-0">{{ \Illuminate\Support\Str::studly($watcher->name) }}</h4>
 
                                 <a href="{{ route('watchers.show', $watcher) }}" class="btn btn-light shadow-sm stretched-link">
-                                    View Watcher
+                                    View
                                 </a>
                             </div>
                         </div>
