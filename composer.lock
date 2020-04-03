@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e70f5f039c02ca796604e008ad86ea2",
+    "content-hash": "05d423b24b0108340087eef48d12092d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -161,6 +161,167 @@
                 "laravel"
             ],
             "time": "2019-12-30T22:50:51+00:00"
+        },
+        {
+            "name": "directorytree/ldaprecord",
+            "version": "v1.2.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DirectoryTree/LdapRecord.git",
+                "reference": "2954b88372e60199f90fc0765c9d0d1a06be9bcd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DirectoryTree/LdapRecord/zipball/2954b88372e60199f90fc0765c9d0d1a06be9bcd",
+                "reference": "2954b88372e60199f90fc0765c9d0d1a06be9bcd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-ldap": "*",
+                "illuminate/contracts": "^5.0|^6.0|^7.0",
+                "nesbot/carbon": "^1.0|^2.0",
+                "php": ">=7.2",
+                "psr/log": "^1.0",
+                "psr/simple-cache": "^1.0",
+                "tightenco/collect": "^5.0|^6.0|^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LdapRecord\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steve Bauman",
+                    "email": "steven_bauman@outlook.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A fully-featured LDAP ORM.",
+            "homepage": "https://www.ldaprecord.com",
+            "keywords": [
+                "active directory",
+                "ad",
+                "adLDAP",
+                "adldap2",
+                "directory",
+                "ldap",
+                "ldaprecord",
+                "orm",
+                "windows"
+            ],
+            "time": "2020-04-03T14:02:40+00:00"
+        },
+        {
+            "name": "directorytree/ldaprecord-laravel",
+            "version": "v1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DirectoryTree/LdapRecord-Laravel.git",
+                "reference": "1a2f333e9ee600828ac5f36c0e2a0e8c848456d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DirectoryTree/LdapRecord-Laravel/zipball/1a2f333e9ee600828ac5f36c0e2a0e8c848456d1",
+                "reference": "1a2f333e9ee600828ac5f36c0e2a0e8c848456d1",
+                "shasum": ""
+            },
+            "require": {
+                "directorytree/ldaprecord": "^1.0",
+                "ext-ldap": "*",
+                "illuminate/support": "^5.6|^6.0|^7.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "~3.7",
+                "phpunit/phpunit": "~7.0"
+            },
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LdapRecord\\Laravel\\LdapServiceProvider",
+                        "LdapRecord\\Laravel\\LdapAuthServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LdapRecord\\Laravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "LDAP Authentication & Management for Laravel.",
+            "keywords": [
+                "adldap2",
+                "laravel",
+                "ldap",
+                "ldaprecord"
+            ],
+            "time": "2020-03-24T01:22:07+00:00"
+        },
+        {
+            "name": "directorytree/watchdog",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DirectoryTree/Watchdog.git",
+                "reference": "95f561174aab483e3567f2a49dbbf1ede491bfed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DirectoryTree/Watchdog/zipball/95f561174aab483e3567f2a49dbbf1ede491bfed",
+                "reference": "95f561174aab483e3567f2a49dbbf1ede491bfed",
+                "shasum": ""
+            },
+            "require": {
+                "directorytree/ldaprecord-laravel": "^1.0",
+                "ext-ldap": "*",
+                "laravel/framework": "^6.0|^7.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "^4.0|^5.0"
+            },
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DirectoryTree\\Watchdog\\WatchdogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DirectoryTree\\Watchdog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An LDAP monitoring and auditing package.",
+            "keywords": [
+                "auditing",
+                "ldap",
+                "monitoring"
+            ],
+            "time": "2020-04-03T05:27:45+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3883,6 +4044,56 @@
             "time": "2020-03-27T16:56:45+00:00"
         },
         {
+            "name": "tightenco/collect",
+            "version": "v7.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tightenco/collect.git",
+                "reference": "5024db45b1ec1956e6d5959cbb5cdf5f00f26f56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tightenco/collect/zipball/5024db45b1ec1956e6d5959cbb5cdf5f00f26f56",
+                "reference": "5024db45b1ec1956e6d5959cbb5cdf5f00f26f56",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/var-dumper": "^3.4 || ^4.0 || ^5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "nesbot/carbon": "^2.23.0",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Collect/Support/helpers.php",
+                    "src/Collect/Support/alias.php"
+                ],
+                "psr-4": {
+                    "Tightenco\\Collect\\": "src/Collect"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "Collect - Illuminate Collections as a separate package.",
+            "keywords": [
+                "collection",
+                "laravel"
+            ],
+            "time": "2020-03-31T17:56:15+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.2",
             "source": {
@@ -4046,167 +4257,6 @@
         }
     ],
     "packages-dev": [
-        {
-            "name": "directorytree/ldaprecord",
-            "version": "v1.2.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DirectoryTree/LdapRecord.git",
-                "reference": "c07cf1e1db701e750a7eccf76a832fde09c01b80"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/DirectoryTree/LdapRecord/zipball/c07cf1e1db701e750a7eccf76a832fde09c01b80",
-                "reference": "c07cf1e1db701e750a7eccf76a832fde09c01b80",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-ldap": "*",
-                "illuminate/contracts": "^5.0|^6.0|^7.0",
-                "nesbot/carbon": "^1.0|^2.0",
-                "php": ">=7.2",
-                "psr/log": "^1.0",
-                "psr/simple-cache": "^1.0",
-                "tightenco/collect": "^5.0|^6.0|^7.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "^6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "LdapRecord\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Steve Bauman",
-                    "email": "steven_bauman@outlook.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A fully-featured LDAP ORM.",
-            "homepage": "https://www.ldaprecord.com",
-            "keywords": [
-                "active directory",
-                "ad",
-                "adLDAP",
-                "adldap2",
-                "directory",
-                "ldap",
-                "ldaprecord",
-                "orm",
-                "windows"
-            ],
-            "time": "2020-04-02T18:00:20+00:00"
-        },
-        {
-            "name": "directorytree/ldaprecord-laravel",
-            "version": "v1.0.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DirectoryTree/LdapRecord-Laravel.git",
-                "reference": "1a2f333e9ee600828ac5f36c0e2a0e8c848456d1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/DirectoryTree/LdapRecord-Laravel/zipball/1a2f333e9ee600828ac5f36c0e2a0e8c848456d1",
-                "reference": "1a2f333e9ee600828ac5f36c0e2a0e8c848456d1",
-                "shasum": ""
-            },
-            "require": {
-                "directorytree/ldaprecord": "^1.0",
-                "ext-ldap": "*",
-                "illuminate/support": "^5.6|^6.0|^7.0",
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "mockery/mockery": "~1.0",
-                "orchestra/testbench": "~3.7",
-                "phpunit/phpunit": "~7.0"
-            },
-            "type": "project",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "LdapRecord\\Laravel\\LdapServiceProvider",
-                        "LdapRecord\\Laravel\\LdapAuthServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "LdapRecord\\Laravel\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "LDAP Authentication & Management for Laravel.",
-            "keywords": [
-                "adldap2",
-                "laravel",
-                "ldap",
-                "ldaprecord"
-            ],
-            "time": "2020-03-24T01:22:07+00:00"
-        },
-        {
-            "name": "directorytree/watchdog",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DirectoryTree/Watchdog.git",
-                "reference": "c8aec48f091a2758ed0480c44a9dcd2ada033fab"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/DirectoryTree/Watchdog/zipball/c8aec48f091a2758ed0480c44a9dcd2ada033fab",
-                "reference": "c8aec48f091a2758ed0480c44a9dcd2ada033fab",
-                "shasum": ""
-            },
-            "require": {
-                "directorytree/ldaprecord-laravel": "^1.0",
-                "ext-ldap": "*",
-                "laravel/framework": "^6.0|^7.0",
-                "php": "^7.2"
-            },
-            "require-dev": {
-                "mockery/mockery": "~1.0",
-                "orchestra/testbench": "^4.0|^5.0"
-            },
-            "type": "project",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "DirectoryTree\\Watchdog\\WatchdogServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "DirectoryTree\\Watchdog\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "An LDAP monitoring and auditing package.",
-            "keywords": [
-                "auditing",
-                "ldap",
-                "monitoring"
-            ],
-            "time": "2020-04-01T17:34:48+00:00"
-        },
         {
             "name": "doctrine/instantiator",
             "version": "1.3.0",
@@ -6104,56 +6154,6 @@
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
             "time": "2019-06-13T22:48:21+00:00"
-        },
-        {
-            "name": "tightenco/collect",
-            "version": "v7.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tightenco/collect.git",
-                "reference": "5024db45b1ec1956e6d5959cbb5cdf5f00f26f56"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/collect/zipball/5024db45b1ec1956e6d5959cbb5cdf5f00f26f56",
-                "reference": "5024db45b1ec1956e6d5959cbb5cdf5f00f26f56",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3",
-                "symfony/var-dumper": "^3.4 || ^4.0 || ^5.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "nesbot/carbon": "^2.23.0",
-                "phpunit/phpunit": "^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/Collect/Support/helpers.php",
-                    "src/Collect/Support/alias.php"
-                ],
-                "psr-4": {
-                    "Tightenco\\Collect\\": "src/Collect"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
-                }
-            ],
-            "description": "Collect - Illuminate Collections as a separate package.",
-            "keywords": [
-                "collection",
-                "laravel"
-            ],
-            "time": "2020-03-31T17:56:15+00:00"
         },
         {
             "name": "webmozart/assert",
