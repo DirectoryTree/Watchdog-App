@@ -280,12 +280,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DirectoryTree/Watchdog.git",
-                "reference": "efb385a92a8993ce8b866e807e9e0710ee223334"
+                "reference": "d87dd05c8e62f1863e06b089950c307f12aa59a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DirectoryTree/Watchdog/zipball/efb385a92a8993ce8b866e807e9e0710ee223334",
-                "reference": "efb385a92a8993ce8b866e807e9e0710ee223334",
+                "url": "https://api.github.com/repos/DirectoryTree/Watchdog/zipball/d87dd05c8e62f1863e06b089950c307f12aa59a7",
+                "reference": "d87dd05c8e62f1863e06b089950c307f12aa59a7",
                 "shasum": ""
             },
             "require": {
@@ -321,7 +321,7 @@
                 "ldap",
                 "monitoring"
             ],
-            "time": "2020-04-03T18:03:19+00:00"
+            "time": "2020-04-03T18:58:06+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
