@@ -32,6 +32,6 @@ class WatcherScansController extends Controller
     {
         ExecuteScan::dispatch($watcher);
 
-        return redirect()->route('watcher.scans.index', $watcher);
+        return redirect()->route('watchers.scans.index', $watcher);
     }
 }
