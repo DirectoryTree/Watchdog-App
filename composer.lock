@@ -280,12 +280,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DirectoryTree/Watchdog.git",
-                "reference": "95f561174aab483e3567f2a49dbbf1ede491bfed"
+                "reference": "efb385a92a8993ce8b866e807e9e0710ee223334"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DirectoryTree/Watchdog/zipball/95f561174aab483e3567f2a49dbbf1ede491bfed",
-                "reference": "95f561174aab483e3567f2a49dbbf1ede491bfed",
+                "url": "https://api.github.com/repos/DirectoryTree/Watchdog/zipball/efb385a92a8993ce8b866e807e9e0710ee223334",
+                "reference": "efb385a92a8993ce8b866e807e9e0710ee223334",
                 "shasum": ""
             },
             "require": {
@@ -321,7 +321,7 @@
                 "ldap",
                 "monitoring"
             ],
-            "time": "2020-04-03T05:27:45+00:00"
+            "time": "2020-04-03T18:03:19+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -992,6 +992,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -1038,6 +1039,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
