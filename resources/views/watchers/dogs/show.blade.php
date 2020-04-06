@@ -33,7 +33,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="3" class="text-center text-muted font-weight-bold">
+                        <td colspan="3" class="text-muted font-weight-bold">
                             No events of this type have occurred yet.
                         </td>
                     </tr>

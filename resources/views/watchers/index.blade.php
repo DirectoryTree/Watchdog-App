@@ -10,7 +10,7 @@
                 <form method="post" action="{{ route('watchers.scan') }}">
                     @csrf
 
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary shadow-sm">
                         Scan for new watchers
                     </button>
                 </form>
@@ -43,8 +43,8 @@
                     </div>
                 </div>
             @empty
-                <div class="list-group-item text-muted">
-                    No domains have been added yet.
+                <div class="list-group-item rounded shadow-sm text-muted font-weight-bold">
+                    No watchers have been added yet.
                 </div>
             @endforelse
         </div>
