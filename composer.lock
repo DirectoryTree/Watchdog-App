@@ -224,16 +224,16 @@
         },
         {
             "name": "directorytree/ldaprecord-laravel",
-            "version": "v1.0.9",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DirectoryTree/LdapRecord-Laravel.git",
-                "reference": "1a2f333e9ee600828ac5f36c0e2a0e8c848456d1"
+                "reference": "d6dc88217aec79acf9d2b147e15356ba5778fdb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DirectoryTree/LdapRecord-Laravel/zipball/1a2f333e9ee600828ac5f36c0e2a0e8c848456d1",
-                "reference": "1a2f333e9ee600828ac5f36c0e2a0e8c848456d1",
+                "url": "https://api.github.com/repos/DirectoryTree/LdapRecord-Laravel/zipball/d6dc88217aec79acf9d2b147e15356ba5778fdb1",
+                "reference": "d6dc88217aec79acf9d2b147e15356ba5778fdb1",
                 "shasum": ""
             },
             "require": {
@@ -272,7 +272,7 @@
                 "ldap",
                 "ldaprecord"
             ],
-            "time": "2020-03-24T01:22:07+00:00"
+            "time": "2020-04-06T14:46:03+00:00"
         },
         {
             "name": "directorytree/watchdog",
@@ -280,12 +280,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/DirectoryTree/Watchdog.git",
-                "reference": "d87dd05c8e62f1863e06b089950c307f12aa59a7"
+                "reference": "3d8dc9b93fa89c526e246ee57d2be8f9d29704c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DirectoryTree/Watchdog/zipball/d87dd05c8e62f1863e06b089950c307f12aa59a7",
-                "reference": "d87dd05c8e62f1863e06b089950c307f12aa59a7",
+                "url": "https://api.github.com/repos/DirectoryTree/Watchdog/zipball/3d8dc9b93fa89c526e246ee57d2be8f9d29704c6",
+                "reference": "3d8dc9b93fa89c526e246ee57d2be8f9d29704c6",
                 "shasum": ""
             },
             "require": {
@@ -321,7 +321,7 @@
                 "ldap",
                 "monitoring"
             ],
-            "time": "2020-04-03T18:58:06+00:00"
+            "time": "2020-04-06T15:14:57+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1314,16 +1314,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "75542a366ccbe1896ed79fcf3e8e68206d6c4257"
+                "reference": "5a67afc2572ec6d430526cdc9c637ef124812389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/75542a366ccbe1896ed79fcf3e8e68206d6c4257",
-                "reference": "75542a366ccbe1896ed79fcf3e8e68206d6c4257",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/5a67afc2572ec6d430526cdc9c637ef124812389",
+                "reference": "5a67afc2572ec6d430526cdc9c637ef124812389",
                 "shasum": ""
             },
             "require": {
@@ -1384,7 +1384,7 @@
                 "md",
                 "parser"
             ],
-            "time": "2020-03-25T19:55:28+00:00"
+            "time": "2020-04-05T16:01:48+00:00"
         },
         {
             "name": "league/flysystem",
@@ -4714,28 +4714,28 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v4.1.3",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "a430bce33d1ad07f756ea6cae9afce9ef8670b42"
+                "reference": "d50490417eded97be300a92cd7df7badc37a9018"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/a430bce33d1ad07f756ea6cae9afce9ef8670b42",
-                "reference": "a430bce33d1ad07f756ea6cae9afce9ef8670b42",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/d50490417eded97be300a92cd7df7badc37a9018",
+                "reference": "d50490417eded97be300a92cd7df7badc37a9018",
                 "shasum": ""
             },
             "require": {
                 "facade/ignition-contracts": "^1.0",
                 "filp/whoops": "^2.4",
-                "jakub-onderka/php-console-highlighter": "^0.4",
                 "php": "^7.2.5",
                 "symfony/console": "^5.0"
             },
             "require-dev": {
                 "facade/ignition": "^2.0",
                 "fideloper/proxy": "^4.2",
+                "friendsofphp/php-cs-fixer": "^2.16",
                 "fruitcake/laravel-cors": "^1.0",
                 "laravel/framework": "^7.0",
                 "laravel/tinker": "^2.0",
@@ -4780,7 +4780,7 @@
                 "php",
                 "symfony"
             ],
-            "time": "2020-03-07T12:46:00+00:00"
+            "time": "2020-04-04T19:56:08+00:00"
         },
         {
             "name": "phar-io/manifest",
