@@ -24,15 +24,15 @@
     </div>
 
     <div class="col-md-10">
-        <div class="list-group">
-            @forelse($scans as $scan)
-                <livewire:scan :scan="$scan" :key="$scan->id"></livewire:scan>
-            @empty
+        @forelse($scans as $scan)
+            <livewire:scan :scan="$scan" :key="$scan->id"></livewire:scan>
+        @empty
+            <div class="list-group">
                 <div class="list-group-item border-0 shadow-sm text-muted font-weight-bold">
                     No scans have been performed yet.
                 </div>
-            @endforelse
-        </div>
+            </div>
+        @endforelse
 
         @if($scans->total() > $scans->perPage())
             <div class="d-flex justify-content-center mt-2">

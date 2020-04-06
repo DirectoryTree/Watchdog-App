@@ -22,14 +22,14 @@ class ScanList extends Component
 
     public function render()
     {
-        $query = $this->watcher->scans()->latest();
+        $query = $this->watcher->scans()->with('progress')->latest();
 
         switch(request('type')) {
             case 'successful':
-                $query->where('success', '=', true);
+                $query->whereNotNull('completed_at');
                 break;
             case 'error':
-                $query->where('success', '=', false);
+                $query->whereNull('completed_at')->whereNotNull('started_at');
                 break;
         }
 
