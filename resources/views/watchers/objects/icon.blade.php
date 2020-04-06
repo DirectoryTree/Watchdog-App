@@ -1,14 +1,14 @@
 @switch($object->type)
-    @case(\DirectoryTree\Watchdog\Ldap\TypeGuesser::TYPE_USER)
+    @case(\DirectoryTree\Watchdog\Ldap\TypeResolver::TYPE_USER)
         <i class="far fa-user"></i>
         @break
-    @case(\DirectoryTree\Watchdog\Ldap\TypeGuesser::TYPE_CONTAINER)
+    @case(\DirectoryTree\Watchdog\Ldap\TypeResolver::TYPE_CONTAINER)
         <i class="far fa-folder"></i>
         @break
-    @case(\DirectoryTree\Watchdog\Ldap\TypeGuesser::TYPE_GROUP)
+    @case(\DirectoryTree\Watchdog\Ldap\TypeResolver::TYPE_GROUP)
         <i class="far fa-users"></i>
         @break
-    @case(\DirectoryTree\Watchdog\Ldap\TypeGuesser::TYPE_DOMAIN)
+    @case(\DirectoryTree\Watchdog\Ldap\TypeResolver::TYPE_DOMAIN)
         @break
     @default
         <i class="far fa-question-circle"></i>
