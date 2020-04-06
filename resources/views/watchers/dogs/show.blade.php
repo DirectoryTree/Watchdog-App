@@ -20,7 +20,9 @@
                                 {{ $notification->object->name }}
                             </a>
                         </td>
-                        <td>{{ $notification->created_at->format(config('watchdog.notifications.date_format')) }}</td>
+                        <td>
+                            <x-date-time :date="$notification->created_at"></x-date-time>
+                        </td>
                         <td class="text-center">
                             @if($notification->sent)
                                 <span class="badge badge-success">Yes</span>

@@ -29,7 +29,9 @@
                             </span>
                         @endif
                     </td>
-                    <td>{{ $notification->created_at }}</td>
+                    <td>
+                        <x-date-time :date="$notification->created_at"></x-date-time>
+                    </td>
                 </tr>
             @empty
                 <tr>

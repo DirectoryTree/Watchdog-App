@@ -37,7 +37,7 @@ return [
     |
     */
 
-    'frequency' => 5,
+    'frequency' => env('WATCHDOG_SCAN_FREQUENCY', 5),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,12 +56,28 @@ return [
             'to' => [env('WATCHDOG_NOTIFICATION_EMAIL', 'your@email.com')],
         ],
 
-        // ex. January 1st, 2020 @ 00:00 AM
-        'date_format' => 'F jS, Y @ g:i A',
-
         // These seconds are applied to dispatched notification jobs you
         // don't receive the "Too many emails per second" SMTP error.
         'seconds_between_notifications' => 5,
+
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Date
+    |--------------------------------------------------------------------------
+    |
+    | Timezone: The timezone to use when displaying dates in notifications.
+    |
+    | Format: The format to use for notifications that are sent by watchdogs.
+    |
+    */
+
+    'date' => [
+
+        'timezone' => env('WATCHDOG_DATE_TIMEZONE', 'UTC'),
+
+        'format' => env('WATCHDOG_DATE_FORMAT', 'F jS, Y @ g:i A'),
 
     ],
 
