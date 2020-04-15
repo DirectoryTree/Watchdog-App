@@ -12,21 +12,19 @@
             @endif
         </div>
 
-        <div class="flex-grow-1 d-flex justify-content-between align-items-center">
-            <div class="flex-grow-1">
-                @include('watchers.objects.icon') {{ $object->name }}
+        <div class="flex-grow-1">
+            @include('watchers.objects.icon')
 
-                <div class="overflow-auto">
-                    @if($searching && $object->parent)
-                        <small class="text-muted">
-                            ({{ $object->parent->dn }})
-                        </small>
-                    @endif
-                </div>
-            </div>
+            <a href="{{ route('watchers.objects.show', [$watcher, $object]) }}">
+                {{ $object->name }}
+            </a>
 
-            <div class="flex-shrink-1">
-                <a href="{{ route('watchers.objects.show', [$watcher, $object]) }}" class="btn btn-sm btn-light shadow-sm">View</a>
+            <div class="overflow-auto">
+                @if($searching && $object->parent)
+                    <small class="text-muted">
+                        ({{ $object->parent->dn }})
+                    </small>
+                @endif
             </div>
         </div>
     </div>
