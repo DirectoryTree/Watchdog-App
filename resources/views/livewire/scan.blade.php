@@ -19,14 +19,14 @@
         </div>
     </div>
 
-    <div class="card-body">
+    <div class="card-body py-2">
         <div class="d-flex justify-content-between align-items-center">
             <div>
                 <strong>{{ $scan->imported }}</strong> object(s) scanned.
             </div>
 
             <div class="text-muted">
-                <i class="fas fa-clock"></i> {{ $scan->duration }}
+                <i class="fas fa-clock"></i> {{ $scan->duration ?? 'Waiting...' }}
 
                 @if($scan->started_at)
                     on {{ $scan->started_at->format(config('watchdog.notifications.date_format')) }}
