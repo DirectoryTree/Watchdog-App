@@ -28,8 +28,8 @@
             <div class="text-muted">
                 <i class="fas fa-clock"></i> {{ $scan->duration ?? 'Waiting...' }}
 
-                @if($scan->started_at)
-                    on {{ $scan->started_at->format(config('watchdog.notifications.date_format')) }}
+                @if($scan->completed_at)
+                    | Completed on <x-date-time :date="$scan->completed_at"></x-date-time>
                 @endif
             </div>
         </div>
