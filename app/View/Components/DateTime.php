@@ -33,7 +33,9 @@ class DateTime extends Component
      */
     public function render()
     {
-        return view('components.date-time');
+        return <<<EOT
+$this->date
+EOT;
     }
 
     /**
