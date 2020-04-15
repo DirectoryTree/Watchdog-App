@@ -45,7 +45,7 @@ EOT;
      */
     protected function format()
     {
-        return config('watchdog.dates.format', 'F jS, Y @ g:i A');
+        return config('watchdog.date.format', 'F jS, Y @ g:i A');
     }
 
     /**
@@ -55,6 +55,6 @@ EOT;
      */
     protected function timezone()
     {
-        return config('watchdog.dates.timezone', 'UTC');
+        return config('watchdog.date.timezone', 'UTC');
     }
 }
