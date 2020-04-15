@@ -8,13 +8,26 @@ use DirectoryTree\Watchdog\LdapWatcher;
 
 class WatcherObjectsController extends Controller
 {
+    /**
+     * Displays a list of all of the watchers objects.
+     *
+     * @param LdapWatcher $watcher
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(LdapWatcher $watcher)
     {
-        return view('watchers.objects.index', [
-            'watcher' => $watcher,
-        ]);
+        return view('watchers.objects.index', ['watcher' => $watcher]);
     }
 
+    /**
+     * Displays a summary page of the object.
+     *
+     * @param LdapWatcher $watcher
+     * @param int         $objectId
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(LdapWatcher $watcher, $objectId)
     {
         $object = $watcher->objects()->findOrFail($objectId);
@@ -25,6 +38,14 @@ class WatcherObjectsController extends Controller
         ]);
     }
 
+    /**
+     * Displays the objects properties.
+     *
+     * @param LdapWatcher $watcher
+     * @param int         $objectId
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function properties(LdapWatcher $watcher, $objectId)
     {
         $object = $watcher->objects()->findOrFail($objectId);
@@ -38,6 +59,14 @@ class WatcherObjectsController extends Controller
         ]);
     }
 
+    /**
+     * Displays the objects changes.
+     *
+     * @param LdapWatcher $watcher
+     * @param int         $objectId
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function changes(LdapWatcher $watcher, $objectId)
     {
         $object = $watcher->objects()->findOrFail($objectId);
@@ -49,6 +78,14 @@ class WatcherObjectsController extends Controller
         ]);
     }
 
+    /**
+     * Displays the objects notifications.
+     *
+     * @param LdapWatcher $watcher
+     * @param int         $objectId
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function notifications(LdapWatcher $watcher, $objectId)
     {
         $object = $watcher->objects()->findOrFail($objectId);

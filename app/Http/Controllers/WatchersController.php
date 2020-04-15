@@ -81,6 +81,11 @@ class WatchersController extends Controller
         return redirect()->route('watchers.index');
     }
 
+    /**
+     * Force a re-scan for watchers.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function scan()
     {
         Artisan::call('watchdog:setup');
