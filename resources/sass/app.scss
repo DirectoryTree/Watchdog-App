@@ -8,6 +8,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Ladda
+@import '~ladda/dist/ladda-themeless.min.css';
+
 // Fixes tables in cards.
 .card-body .table tr:first-child td,th {
     border-top: 0;

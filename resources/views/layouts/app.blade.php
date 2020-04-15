@@ -39,10 +39,16 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right shadow border-0">
+                                <a href="{{ route('users.index') }}" class="dropdown-item">
+                                    <i class="fas fa-users-cog"></i> Users
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-sign-out-alt"></i> {{ __('Logout') }}
+                                    <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

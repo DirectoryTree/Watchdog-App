@@ -6,7 +6,7 @@
             <div class="card border-0 shadow-sm">
                 <div class="card-body m-3">
                     @unless(\App\User::exists())
-                        <div class="alert alert-primary shadow-sm border-0 text-center">
+                        <div class="alert alert-info shadow-sm border-0 text-center">
                             <p>No administrator account has been created yet.</p>
 
                             <a class="btn btn-primary btn-block btn-sm shadow-sm" href="{{ route('register') }}">Create one now</a>

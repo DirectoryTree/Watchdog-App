@@ -8,6 +8,13 @@ use Illuminate\Support\Arr;
 
 class WatcherChangesController extends Controller
 {
+    /**
+     * Displays a list of all the watchers detected changes.
+     *
+     * @param LdapWatcher $watcher
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index(LdapWatcher $watcher)
     {
         return view('watchers.changes.index', [
@@ -16,6 +23,14 @@ class WatcherChangesController extends Controller
         ]);
     }
 
+    /**
+     * Displays the specified change detected by the watcher.
+     *
+     * @param LdapWatcher $watcher
+     * @param int         $changeId
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(LdapWatcher $watcher, $changeId)
     {
         $change = $watcher->changes()->with('object')->findOrFail($changeId);

@@ -43,7 +43,7 @@
                     </div>
                 </div>
             @empty
-                <div class="list-group-item rounded shadow-sm text-muted font-weight-bold">
+                <div class="list-group-item rounded shadow-sm text-muted">
                     No watchers have been added yet.
                 </div>
             @endforelse

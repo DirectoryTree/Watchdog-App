@@ -34,8 +34,15 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'WatchersController@index')->name('watchers.index');
     Route::post('/scan', 'WatchersController@scan')->name('watchers.scan');
-    Route::get('/{watcher}', 'WatchersController@show')->name('watchers.show');
 
+    Route::get('/users', 'UsersController@index')->name('users.index');
+    Route::get('/users/create', 'UsersController@create')->name('users.create');
+    Route::post('/users', 'UsersController@store')->name('users.store');
+    Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
+    Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
+    Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');
+
+    Route::get('/{watcher}', 'WatchersController@show')->name('watchers.show');
     Route::get('/{watcher}/watchdog/{watchdog}', 'WatcherDogsController@show')->name('watchers.dogs.show');
 
     Route::get('/{watcher}/scans', 'WatcherScansController@index')->name('watchers.scans.index');
