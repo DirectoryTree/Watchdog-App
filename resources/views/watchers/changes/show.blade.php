@@ -46,7 +46,13 @@
                             <tbody>
                             @forelse($before as $value)
                                 <tr class="{{ in_array($value, $removed) ? 'bg-danger' : '' }}">
-                                    <td>{{ $value instanceof \Carbon\Carbon ? $value->format(config('watchdog.notifications.date_format')) : $value }}</td>
+                                    <td>
+                                        @if($value instanceof \Carbon\Carbon)
+                                            <x-date-time :date="$value"></x-date-time>
+                                        @else
+                                            {{ $value }}
+                                        @endif
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
@@ -66,7 +72,13 @@
                             <tbody>
                             @forelse($after as $value)
                                 <tr class="{{ in_array($value, $added) ? 'bg-success' : '' }}">
-                                    <td>{{ $value instanceof \Carbon\Carbon ? $value->format(config('watchdog.notifications.date_format')) : $value }}</td>
+                                    <td>
+                                        @if($value instanceof \Carbon\Carbon)
+                                            <x-date-time :date="$value"></x-date-time>
+                                        @else
+                                            {{ $value }}
+                                        @endif
+                                    </td>
                                 </tr>
                             @empty
                                 <tr>
