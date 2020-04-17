@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use LdapRecord\Laravel\Auth\ListensForLdapBindFailure;
+use LdapRecord\Laravel\Auth\UserProvider as LdapUserProvider;
 
 class LoginController extends Controller
 {
@@ -49,8 +50,14 @@ class LoginController extends Controller
      */
     protected function credentials(Request $request)
     {
+        $provider = $this->guard()->getProvider();
+
+        if ($provider instanceof LdapUserProvider) {
+            $username = 'mail';
+        }
+
         return [
-            'email' => $request->get('email'),
+            $username ?? 'email' => $request->get('email'),
             'password' => $request->get('password'),
         ];
     }
