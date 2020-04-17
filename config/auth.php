@@ -74,7 +74,7 @@ return [
         'ldap' => [
             'driver' => 'ldap',
             'model' => App\Ldap\User::class,
-            'rules' => [],
+            'rules' => [\App\Ldap\Rules\OnlyImported::class],
             'database' => [
                 'model' => App\User::class,
                 'sync_passwords' => false,
