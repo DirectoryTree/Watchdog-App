@@ -16,7 +16,7 @@
                             <h6 class="text-muted">{{ $entry['watchdog']->getName() }}</h6>
 
                             <h1 class="mb-0 d-inline">
-                                {{ $entry['today']->count() }}
+                                {{ $entry['today'] }}
                             </h1>
 
                             <h4 class="mb-0 d-inline text-muted">today</h4>

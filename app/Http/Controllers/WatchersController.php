@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cache\CountCache;
 use App\WatchdogRepository;
 use DirectoryTree\Watchdog\Watchdog;
 use DirectoryTree\Watchdog\LdapWatcher;
@@ -26,21 +27,22 @@ class WatchersController extends Controller
      * Display stats on the given watcher.
      *
      * @param LdapWatcher $watcher
+     * @param CountCache  $cache
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(LdapWatcher $watcher)
+    public function show(LdapWatcher $watcher, CountCache $cache)
     {
         $watchdogs = (new WatchdogRepository($watcher))
             ->get()
-            ->mapWithKeys(function (Watchdog $watchdog) {
-                $createdToday = $watchdog->notifications()->whereDate('created_at', today())->get();
+            ->mapWithKeys(function (Watchdog $watchdog) use ($watcher, $cache) {
+                $createdToday = $cache->notifications($watcher, $watchdog);
 
                 return [
                     $watchdog->getKey() => [
                         'watchdog' => $watchdog,
                         'today' => $createdToday,
-                    ]
+                    ],
                 ];
             });
 
