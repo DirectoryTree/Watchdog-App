@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-sm-8 col-md-6 col-lg-4">
             <div class="card border-0 shadow-sm">
                 <div class="card-body m-3">
                     @unless(\App\User::exists())
