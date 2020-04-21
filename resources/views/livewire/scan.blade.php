@@ -35,26 +35,29 @@
                 @endif
 
                 @if($scan->completed_at)
-                    | Completed on <x-date-time :date="$scan->completed_at"></x-date-time>
+                    | Completed <x-date-time :date="$scan->completed_at"></x-date-time>
                 @endif
             </div>
         </div>
     </div>
+
     @unless($scan->completed_at)
         <div class="card-footer bg-light">
-            <ul class="list-group shadow-sm rounded d-flex list-group-horizontal-xl text-center">
-                @foreach($this->states as $state => $name)
-                    @if($scan->progress->where('state', $state)->isNotEmpty())
-                        <li class="list-group-item {{ $scan->failed ? 'bg-danger' : 'bg-success' }} flex-grow-1 p-2">
-                            <i class="fas fa-check-circle"></i> {{ $name }}
-                        </li>
-                    @else
-                        <li class="list-group-item bg-secondary flex-grow-1 p-2">
-                            <i class="fas fa-times-circle"></i> {{ $name }}
-                        </li>
-                    @endif
-                @endforeach
-            </ul>
+            <div class="progress">
+                @php
+                    $totalStates = count($this->states);
+
+                    $currentStates = $scan->progress->count();
+
+                    $percent = round(intval(($currentStates / $totalStates) * 100), -1);
+
+                    $value = $percent > 100 ? 100 : $percent;
+                @endphp
+
+                <div class="progress-bar" role="progressbar" style="width: {{ $value }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                    {{ $value }}% - {{ $this->states[$scan->progress->last()->state] ?? '' }}
+                </div>
+            </div>
         </div>
     @endunless
 

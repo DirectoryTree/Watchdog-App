@@ -9,7 +9,7 @@
                     <th><i class="fas fa-cube"></i> Object</th>
                     <th>Attribute</th>
                     <th><i class="fas fa-clock"></i> Changed</th>
-                    <th><i class="fas fa-clock"></i> Created</th>
+                    <th><i class="fas fa-clock"></i> Detected</th>
                     <th></th>
                 </tr>
             </thead>
