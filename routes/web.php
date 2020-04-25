@@ -55,6 +55,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/{watcher}/objects/{object}', 'WatcherObjectsController@show')->name('watchers.objects.show');
 
     Route::get('/{watcher}/objects/{object}/changes', 'WatcherObjectsController@changes')->name('watchers.objects.changes');
+    Route::get('/{watcher}/objects/{object}/timeline', 'WatcherObjectsController@timeline')->name('watchers.objects.timeline');
     Route::get('/{watcher}/objects/{object}/properties', 'WatcherObjectsController@properties')->name('watchers.objects.properties');
     Route::get('/{watcher}/objects/{object}/notifications', 'WatcherObjectsController@notifications')->name('watchers.objects.notifications');
 });

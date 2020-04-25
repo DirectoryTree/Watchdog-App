@@ -1,7 +1,7 @@
 <div class="list-group-item shadow-sm">
     <div class="d-flex justify-content-between align-items-center">
         <div class="flex-shrink-1 mr-2">
-            @if($object->type == 'container')
+            @if(in_array($object->type, ['container', 'domain']))
                 <button class="btn btn-sm btn-light shadow-sm" wire:click="loadChildren">
                     <i class="fas fa-{{ $expanded ? 'minus' : 'plus' }}"></i>
                 </button>

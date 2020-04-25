@@ -99,4 +99,36 @@ class WatcherObjectsController extends Controller
             'notifications' => $object->notifications()->latest()->paginate(10),
         ]);
     }
+
+    /**
+     * Displays the objects timeline.
+     *
+     * @param LdapWatcher $watcher
+     * @param int         $objectId
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function timeline(LdapWatcher $watcher, $objectId)
+    {
+        $object = $watcher->objects()->findOrFail($objectId);
+
+        $changes = $object->changes()
+            ->selectRaw('count(*) as count, date(created_at) as date')
+            ->groupByRaw('date')
+            ->orderByRaw('date desc')
+            ->get();
+
+        $days = [];
+
+        foreach (range(1, 90) as $day) {
+            $days[] = now()->subDay($day)->format('Y-m-d');
+        }
+
+        return view('watchers.objects.timeline', [
+            'watcher' => $watcher,
+            'object' => $object,
+            'changes' => $changes,
+            'days' => array_reverse($days),
+        ]);
+    }
 }
