@@ -7,7 +7,7 @@
                 @foreach($days as $index => $day)
                     @php($changesForTheDay = $changes->where('date', '=', $day))
 
-                    <a href="{{ route('watchers.objects.timeline', [$watcher, $object, 'day' => $day]) }}">
+                    <a href="{{ current_route_filter(['day' => $day]) }}" data-turbolinks-scroll>
                         <rect
                             height="34"
                             width="3"
@@ -33,5 +33,9 @@
         </div>
     </div>
 
-    <livewire:calendar :changes="$changes"></livewire>
+    <x-change-calendar
+        :watcher="$watcher"
+        :changes="$changes"
+        :changes-for-day="$changesForDay"
+    ></x-change-calendar>
 @endsection

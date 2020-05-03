@@ -1,6 +1,26 @@
 @extends('watchers.layout')
 
 @section('page')
+    <div class="card shadow-sm mb-2">
+        <x-navbar id="objects-navbar" title="Search">
+
+
+            <ul class="navbar-nav ml-auto">
+                @include('components.partials.nav.clear-filters')
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown-by-object" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-cube"></i> Object
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right shadow mx-n4" aria-labelledby="dropdown-by-creator" style="min-width: 300px;">
+                        <!-- user search -->
+                    </div>
+                </li>
+            </ul>
+        </x-navbar>
+    </div>
+
     <div class="table-responsive bg-white shadow-sm rounded">
         <table class="table mb-0">
             <thead>

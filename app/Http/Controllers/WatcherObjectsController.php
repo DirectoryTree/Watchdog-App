@@ -110,6 +110,11 @@ class WatcherObjectsController extends Controller
      */
     public function timeline(LdapWatcher $watcher, $objectId)
     {
+        $validated = request()->validate([
+            'day' => 'date',
+            'start' => 'date',
+        ]);
+
         $object = $watcher->objects()->findOrFail($objectId);
 
         $changes = $object->changes()
@@ -117,6 +122,10 @@ class WatcherObjectsController extends Controller
             ->groupByRaw('date')
             ->orderByRaw('date desc')
             ->get();
+
+        $changesForDay = isset($validated['day'])
+            ? $object->changes()->whereDate('created_at', $validated['day'])->paginate()
+            : collect();
 
         $days = [];
 
@@ -129,6 +138,7 @@ class WatcherObjectsController extends Controller
             'object' => $object,
             'changes' => $changes,
             'days' => array_reverse($days),
+            'changesForDay' => $changesForDay,
         ]);
     }
 }
