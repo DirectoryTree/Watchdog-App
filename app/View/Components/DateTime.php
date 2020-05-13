@@ -10,7 +10,7 @@ class DateTime extends Component
     /**
      * The date.
      *
-     * @var string
+     * @var Carbon
      */
     public $date;
 
@@ -23,7 +23,7 @@ class DateTime extends Component
      */
     public function __construct(Carbon $date)
     {
-        $this->date = $date->setTimezone($this->timezone())->format($this->format());
+        $this->date = $date->setTimezone($this->timezone());
     }
 
     /**
@@ -34,7 +34,7 @@ class DateTime extends Component
     public function render()
     {
         return <<<EOT
-$this->date
+{$this->date->format($this->format())}
 EOT;
     }
 
