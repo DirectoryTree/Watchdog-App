@@ -2,7 +2,7 @@
 
 @section('tab')
     <div class="table-responsive bg-white shadow-sm rounded">
-        <table class="table">
+        <table class="table mb-0">
             <thead>
                 <tr class="text-uppercase text-muted bg-secondary">
                     <th class="tex">Attribute</th>
@@ -12,7 +12,7 @@
             <tbody>
             @forelse($attributes as $attribute => $values)
                 <tr>
-                    <td>{{ $attribute }}</td>
+                    <td class="bg-secondary text-right align-middle">{{ $attribute }}</td>
                     <td>
                         @if(count($values) > 1)
                             <ul class="m-0 list-unstyled">
