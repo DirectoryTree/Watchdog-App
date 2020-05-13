@@ -19,7 +19,9 @@
                 Objects
             </h5>
 
-            <span class="badge badge-primary badge-pill">{{ $cache->objects($watcher) }}</span>
+            <span class="badge badge-primary badge-pill">
+                <x-large-count :value="$cache->objects($watcher)"/>
+            </span>
         </a>
 
         <a href="{{ route('watchers.changes.index', $watcher) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center rounded mb-2 mb-md-0 mr-2 shadow-sm border-0 {{ request()->routeIs('watchers.changes.*') ? 'active' : '' }}">
@@ -28,7 +30,9 @@
                 Changes
             </h5>
 
-            <span class="badge badge-primary badge-pill">{{ $cache->changes($watcher) }}</span>
+            <span class="badge badge-primary badge-pill">
+                <x-large-count :value="$cache->changes($watcher)"/>
+            </span>
         </a>
 
         <a href="{{ route('watchers.scans.index', $watcher) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center rounded mb-2 mb-md-0 shadow-sm border-0 {{ request()->routeIs('watchers.scans.*') ? 'active' : '' }}">
@@ -37,7 +41,9 @@
                 Scans
             </h5>
 
-            <span class="badge badge-primary badge-pill">{{ $cache->scans($watcher) }}</span>
+            <span class="badge badge-primary badge-pill">
+                <x-large-count :value="$cache->scans($watcher)"/>
+            </span>
         </a>
     </div>
 
