@@ -16,7 +16,7 @@ Monitor & Audit your Active Directory server.
 
 <hr/>
 
-<h3 align="center">Watchdog is Sponsorware™</h3>
+<h3 align="center">Watchdog is Supportware™</h3>
 
 <p align="center">If you require support using Watchdog, a <a href="https://github.com/sponsors/stevebauman">sponsorship</a> is required.</p>
 
