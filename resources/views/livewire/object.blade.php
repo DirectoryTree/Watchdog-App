@@ -4,14 +4,14 @@
             @if(in_array($object->type, ['container', 'domain']))
                 <button class="btn btn-sm btn-light" wire:click="loadChildren">
                     @if($expanded)
-                        <i data-feather="minus"></i>
+                        <i data-feather="minus" width="15" height="15"></i>
                     @else
-                        <i data-feather="plus"></i>
+                        <i data-feather="plus" width="15" height="15"></i>
                     @endif
                 </button>
             @else
                 <button class="btn btn-sm text-muted" disabled>
-                    <i data-feather="minus"></i>
+                    <i data-feather="minus" width="15" height="15"></i>
                 </button>
             @endif
         </div>
@@ -19,7 +19,7 @@
         <div class="flex-grow-1">
             <div class="d-flex align-items-center">
                 <span class="text-muted mr-2">
-                    @include('watchers.objects.icon')
+                    <x-object-icon :object="$object" width="20" width="20"></x-object-icon>
                 </span>
 
                 <a href="{{ route('watchers.objects.show', [$watcher, $object]) }}">

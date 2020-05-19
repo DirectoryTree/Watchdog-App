@@ -10,12 +10,14 @@
         <title>{{ config('app.name', 'Watchdog') }}</title>
 
         <!-- Scripts -->
+        <script src="{{ asset(mix('js/app.js')) }}" defer data-turbolinks-track="reload"></script>
         @stack('scripts')
 
         <!-- Styles -->
+        <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet" data-turbolinks-track="reload">
         @stack('styles')
     </head>
-    <body>
+    <body class="h-100">
         @yield('body')
     </body>
 </html>

@@ -1,6 +1,6 @@
 <div>
     <div class="mb-2">
-        <input type="search" class="form-control shadow-sm" placeholder="Search..." wire:model="search">
+        <input type="search" class="form-control" placeholder="Search..." wire:model="search">
     </div>
 
     <div class="list-group">

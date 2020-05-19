@@ -30,7 +30,10 @@
 
 @if($user->exists)
     <div class="col-md-6 offset-md-4">
-        <div class="alert alert-info shadow-sm">Enter a new password to change.</div>
+
+        <label class="text-muted">
+            Enter a new password to change the current one.
+        </label>
     </div>
 @endif
 

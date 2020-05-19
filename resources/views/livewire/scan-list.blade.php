@@ -27,8 +27,12 @@
         <livewire:scan :scan="$scan" :key="$scan->id"></livewire:scan>
     @empty
         <div class="list-group">
-            <div class="list-group-item border-0 shadow-sm text-muted font-weight-bold">
-                No scans have been performed yet.
+            <div class="list-group-item border-0 shadow-sm text-muted text-center">
+                @if(request('type'))
+                    No scans to display.
+                @else
+                    No scans have been ran yet.
+                @endif
             </div>
         </div>
     @endforelse

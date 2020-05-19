@@ -1,6 +1,8 @@
 @extends('watchers.layout')
 
 @section('page')
+    <h2>Changes</h2>
+
     <div class="table-responsive bg-white shadow-sm rounded">
         <table class="table mb-0">
             <thead>

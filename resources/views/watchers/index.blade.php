@@ -1,52 +1,45 @@
-@extends('layouts.app')
+@extends('layouts.base')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="mb-0">Watchers</h2>
+@section('body')
+<div class="h-100">
+    <div class="container pt-4">
+        <div class="d-flex justify-content-center my-4">
+            <img alt="Watchdog logo" width="175" src="{{ asset('img/logo-large.svg') }}"/>
+        </div>
 
-                <form method="post" action="{{ route('watchers.scan') }}">
-                    @csrf
+        <h2 class="text-center text-muted">Domains</h2>
 
-                    <button type="submit" class="btn btn-primary shadow-sm">
-                        Scan for new watchers
-                    </button>
-                </form>
-            </div>
+        <div class="row justify-content-center">
+                @forelse($watchers as $watcher)
+                    <div class="col-md-3">
+                        <div class="card shadow-sm mb-4">
+                            <div class="row justify-content-center my-4">
+                                <div class="col-auto bg-secondary rounded-circle p-4">
+                                    <i data-feather="server" width="75" height="75"></i>
+                                </div>
+                            </div>
 
-            @forelse($watchers as $watcher)
-                <div class="card shadow-sm mb-4">
-                    <div class="list-group list-group-flush">
-                        <div class="list-group-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="mb-0">{{ \Illuminate\Support\Str::studly($watcher->name) }}</h4>
+                            <div class="row justify-content-center">
+                                <div class="col-auto">
+                                    <h4 class="mb-0">{{ \Illuminate\Support\Str::studly($watcher->name) }}</h4>
+                                </div>
+                            </div>
 
-                                <a href="{{ route('watchers.show', $watcher) }}" class="btn btn-light shadow-sm stretched-link">
-                                    View
-                                </a>
+                            <div class="row m-4">
+                                <div class="col">
+                                    <a href="{{ route('watchers.show', $watcher) }}" class="btn btn-block btn-primary">View</a>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="list-group-item">
-                            <h5 class="text-muted">{{ $watcher->changes()->count() }} total changes.</h5>
-                        </div>
-
-                        <div class="list-group-item">
-                            <h5 class="text-muted">{{ $watcher->scans()->count() }} total scans.</h5>
-                        </div>
-
-                        <div class="list-group-item">
-                            <h5 class="text-muted">{{ $watcher->objects()->count() }} total objects.</h5>
+                    </div>
+                @empty
+                    <div class="col-md-3">
+                        <div class="list-group-item rounded shadow-sm text-muted">
+                            No domains have been added yet.
                         </div>
                     </div>
-                </div>
-            @empty
-                <div class="list-group-item rounded shadow-sm text-muted">
-                    No watchers have been added yet.
-                </div>
-            @endforelse
+                @endforelse
+            </div>
         </div>
     </div>
 </div>
