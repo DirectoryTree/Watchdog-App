@@ -1,5 +1,9 @@
 @extends('watchers.layout')
 
+@section('header')
+    <h2>{{ $object->name }}</h2>
+@endsection
+
 @section('breadcrumbs', Breadcrumbs::render('watchers.objects.show', $watcher, $object))
 
 @section('page')

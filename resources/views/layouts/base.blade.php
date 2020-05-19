@@ -15,7 +15,7 @@
         <!-- Styles -->
         @stack('styles')
     </head>
-    <body class="h-100">
+    <body>
         @yield('body')
     </body>
 </html>

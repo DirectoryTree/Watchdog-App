@@ -1,5 +1,9 @@
 @extends('watchers.layout')
 
+@section('header')
+    <h2>Activities</h2>
+@endsection
+
 @section('page')
     @empty($watchdogs)
         <div class="card shadow-sm">

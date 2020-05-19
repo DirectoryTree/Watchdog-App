@@ -1,44 +1,42 @@
-<div class="row" wire:poll.3s>
-    <div class="col-md-2">
-        <div class="list-group border-0 mb-4">
-            <a href="{{ route('watchers.scans.index', $watcher) }}" class="list-group-item list-group-item-action shadow-sm {{ empty(request('type')) ? 'active' : '' }}">
-                <i class="fas fa-list-ul"></i> All
-            </a>
+<div wire:poll.3s>
+    <div class="d-flex justify-content-between mb-4">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link {{ empty(request('type')) ? 'border rounded disabled' : '' }}" href="{{ route('watchers.scans.index', $watcher) }}">All</a>
+            </li>
 
-            <a href="{{ route('watchers.scans.index', ['watcher' => $watcher, 'type' => 'error']) }}" class="list-group-item list-group-item-action shadow-sm {{ request('type') == 'error' ? 'active' : '' }}">
-                <i class="fas fa-times-circle"></i> Errors
-            </a>
+            <li class="nav-item">
+                <a class="nav-link {{ request('type') == 'successful' ? 'border rounded disabled' : '' }}" href="{{ route('watchers.scans.index', ['watcher' => $watcher, 'type' => 'successful']) }}">Successful</a>
+            </li>
 
-            <a href="{{ route('watchers.scans.index', ['watcher' => $watcher, 'type' => 'successful']) }}" class="list-group-item list-group-item-action shadow-sm {{ request('type') == 'successful' ? 'active' : '' }}">
-                <i class="fas fa-check-circle"></i> Successful
-            </a>
-        </div>
+            <li class="nav-item">
+                <a class="nav-link {{ request('type') == 'error' ? 'border rounded disabled' : '' }}" href="{{ route('watchers.scans.index', ['watcher' => $watcher, 'type' => 'error']) }}">Errors</a>
+            </li>
+        </ul>
 
         <form method="post" action="{{ route('watchers.scans.start', $watcher) }}">
             @csrf
 
-            <button type="submit" class="btn btn-block btn-primary shadow-sm">
+            <button type="submit" class="btn btn-primary shadow-sm">
                 <i class="fas fa-search"></i> Scan Now
             </button>
         </form>
     </div>
 
-    <div class="col-md-10">
-        @forelse($scans as $scan)
-            <livewire:scan :scan="$scan" :key="$scan->id"></livewire:scan>
-        @empty
-            <div class="list-group">
-                <div class="list-group-item border-0 shadow-sm text-muted font-weight-bold">
-                    No scans have been performed yet.
-                </div>
+    @forelse($scans as $scan)
+        <livewire:scan :scan="$scan" :key="$scan->id"></livewire:scan>
+    @empty
+        <div class="list-group">
+            <div class="list-group-item border-0 shadow-sm text-muted font-weight-bold">
+                No scans have been performed yet.
             </div>
-        @endforelse
+        </div>
+    @endforelse
 
-        @if($scans->total() > $scans->perPage())
-            <div class="d-flex justify-content-center mt-2">
-                {{ $scans->links() }}
-            </div>
-        @endif
-    </div>
+    @if($scans->total() > $scans->perPage())
+        <div class="d-flex justify-content-center mt-2">
+            {{ $scans->links() }}
+        </div>
+    @endif
 </div>
 

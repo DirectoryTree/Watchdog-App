@@ -1,16 +1,16 @@
 @switch($object->type)
     @case(\DirectoryTree\Watchdog\Ldap\TypeResolver::TYPE_USER)
-        <i class="far fa-user"></i>
+        <i data-feather="user"></i>
         @break
     @case(\DirectoryTree\Watchdog\Ldap\TypeResolver::TYPE_CONTAINER)
-        <i class="far fa-folder"></i>
+        <i data-feather="folder"></i>
         @break
     @case(\DirectoryTree\Watchdog\Ldap\TypeResolver::TYPE_GROUP)
-        <i class="far fa-users"></i>
+        <i data-feather="users"></i>
         @break
     @case(\DirectoryTree\Watchdog\Ldap\TypeResolver::TYPE_DOMAIN)
         @break
     @default
-        <i class="far fa-question-circle"></i>
+        <i data-feather="help-circle"></i>
         @break
 @endswitch

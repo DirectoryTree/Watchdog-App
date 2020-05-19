@@ -7,9 +7,12 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-datepicker/dist/css/bootstrap-datepicker.css';
 
 // Ladda
 @import '~ladda/dist/ladda-themeless.min.css';
+
+@import 'sidebar';
 
 // Fixes tables in cards.
 .card-body .table tr:first-child td,th {
