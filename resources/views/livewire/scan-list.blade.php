@@ -29,7 +29,7 @@
         <div class="list-group">
             <div class="list-group-item border-0 shadow-sm text-muted text-center">
                 @if(request('type'))
-                    No scans to display.
+                    There are no {{ request('type') }} scans to display.
                 @else
                     No scans have been ran yet.
                 @endif

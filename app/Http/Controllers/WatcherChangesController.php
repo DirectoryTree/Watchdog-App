@@ -17,10 +17,7 @@ class WatcherChangesController extends Controller
      */
     public function index(LdapWatcher $watcher)
     {
-        return view('watchers.changes.index', [
-            'watcher' => $watcher,
-            'changes' => $watcher->changes()->with('object')->latest()->paginate(10),
-        ]);
+        return view('watchers.changes.index', ['watcher' => $watcher]);
     }
 
     /**

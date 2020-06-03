@@ -17,15 +17,9 @@ class WatcherDogsController extends Controller
      */
     public function show(LdapWatcher $watcher, Watchdog $watchdog)
     {
-        $notifications = $watchdog->notifications()
-            ->with('object')
-            ->latest()
-            ->paginate(10);
-
         return view('watchers.dogs.show', [
             'watcher' => $watcher,
             'watchdog' => $watchdog,
-            'notifications' => $notifications,
         ]);
     }
 }

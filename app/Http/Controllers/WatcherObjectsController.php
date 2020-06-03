@@ -127,6 +127,21 @@ class WatcherObjectsController extends Controller
             ? $object->changes()->whereDate('created_at', $validated['day'])->paginate()
             : collect();
 
+        if (isset($validated['day'])) {
+            $accumulatedChanges = $object->changes()->select('attribute', 'after')
+                ->groupBy(['attribute', 'after', 'created_at'])
+                ->whereBetween('created_at', [
+                    $validated['day'],
+                    now(),
+                ])->oldest()->get()->map(function ($change) use ($object) {
+                    return [
+                        'attribute' => $change->attribute,
+                        'before' => $change->before,
+                        'after' => $object->values[$change->attribute],
+                    ];
+                });
+        }
+
         $days = [];
 
         foreach (range(1, 90) as $day) {
@@ -139,6 +154,7 @@ class WatcherObjectsController extends Controller
             'changes' => $changes,
             'days' => array_reverse($days),
             'changesForDay' => $changesForDay,
+            'accumulatedChanges' => isset($accumulatedChanges) ? $accumulatedChanges : collect(),
         ]);
     }
 }

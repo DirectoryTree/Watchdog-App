@@ -14,6 +14,11 @@ class WatchdogRepository
      */
     protected $dogs;
 
+    /**
+     * Constructor.
+     *
+     * @param LdapWatcher $watcher
+     */
     public function __construct(LdapWatcher $watcher)
     {
         $this->dogs = collect(

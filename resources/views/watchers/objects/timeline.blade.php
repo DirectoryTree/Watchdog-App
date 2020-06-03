@@ -7,7 +7,7 @@
                 @foreach($days as $index => $day)
                     @php($changesForTheDay = $changes->where('date', '=', $day))
 
-                    <a href="{{ current_route_filter(['day' => $day]) }}" data-turbolinks-scroll>
+                    <a href="{{ current_route_filter(['day' => $day]) }}" title="{{ $day }}" data-turbolinks-scroll>
                         <rect
                             height="34"
                             width="3"
@@ -15,9 +15,8 @@
                             y="0"
                             fill="{{ $changesForTheDay->isNotEmpty() ? '#28a745' : '#C3C4C5' }}"
                             class="day-{{ $index }}"
-                            title="{{ $day }}"
                             data-toggle="popover"
-                            data-content="Changes: {{ $changesForTheDay->sum('count') }}"
+                            data-content="{{ $changesForTheDay->sum('count') }} changes"
                             data-trigger="hover"
                             data-placement="bottom"
                         ></rect>
@@ -38,4 +37,23 @@
         :changes="$changes"
         :changes-for-day="$changesForDay"
     ></x-change-calendar>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Before</th>
+                <th>After</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach($accumulatedChanges as $change)
+            <tr>
+                <td>{{ $change['attribute'] }}</td>
+                <td>{{ var_dump($change['before']) }}</td>
+                <td>{{ var_dump($change['after']) }}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
 @endsection
