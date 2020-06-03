@@ -38,7 +38,12 @@
         <h3>Nested Objects</h3>
 
         <div class="list-group">
-            <livewire:watcher-object :watcher="$watcher" :object="$object" :searching="!empty($search)" :key="$object->id"></livewire:watcher-object>
+            <livewire:watcher-object
+                :watcher="$watcher"
+                :object="$object"
+                :searching="!empty($search)"
+                :key="$object->id"
+            />
         </div>
     @endif
 @endsection

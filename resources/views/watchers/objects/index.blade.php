@@ -5,5 +5,5 @@
 @endsection
 
 @section('page')
-    <livewire:watcher-object-list :watcher="$watcher"></livewire:watcher-object-list>
+    <livewire:watcher-object-list :watcher="$watcher"/>
 @endsection

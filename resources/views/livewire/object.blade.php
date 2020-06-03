@@ -19,7 +19,7 @@
         <div class="flex-grow-1">
             <div class="d-flex align-items-center">
                 <span class="text-muted mr-2">
-                    <x-object-icon :object="$object" width="20" width="20"></x-object-icon>
+                    <x-object-icon :object="$object" width="20" width="20"/>
                 </span>
 
                 <a href="{{ route('watchers.objects.show', [$watcher, $object]) }}">
@@ -41,7 +41,11 @@
 
         <div class="list-group mt-2">
             @foreach($children as $child)
-                <livewire:watcher-object :watcher="$watcher" :object="$child" :key="$child->id"></livewire:watcher-object>
+                <livewire:watcher-object
+                    :watcher="$watcher"
+                    :object="$child"
+                    :key="$child->id"
+                />
             @endforeach
         </div>
     @endif

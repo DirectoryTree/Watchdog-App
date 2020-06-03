@@ -36,5 +36,5 @@
         :watcher="$watcher"
         :changes="$changes"
         :changes-for-day="$changesForDay"
-    ></x-change-calendar>
+    />
 @endsection

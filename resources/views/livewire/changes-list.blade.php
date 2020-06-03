@@ -7,7 +7,7 @@
                         <a href="#" class="d-flex align-items-center justify-content-center" wire:click.prevent="sortBy('id')">
                             # ID
 
-                            <x-sort-icon field="id" :current="$sortBy" :direction="$sortByDirection"></x-sort-icon>
+                            <x-sort-icon field="id" :current="$sortBy" :direction="$sortByDirection"/>
                         </a>
                     </th>
                     <th>
@@ -16,14 +16,14 @@
 
                             <span class="mx-1">Object</span>
 
-                            <x-sort-icon field="name" :current="$sortBy" :direction="$sortByDirection"></x-sort-icon>
+                            <x-sort-icon field="name" :current="$sortBy" :direction="$sortByDirection"/>
                         </a>
                     </th>
                     <th>
                         <a href="#" class="d-flex align-items-center" wire:click.prevent="sortBy('attribute')">
                             Attribute
 
-                            <x-sort-icon field="attribute" :current="$sortBy" :direction="$sortByDirection"></x-sort-icon>
+                            <x-sort-icon field="attribute" :current="$sortBy" :direction="$sortByDirection"/>
                         </a>
                     </th>
                     <th>
@@ -32,7 +32,7 @@
 
                             <span class="mx-1">Detected</span>
 
-                            <x-sort-icon field="created_at" :current="$sortBy" :direction="$sortByDirection"></x-sort-icon>
+                            <x-sort-icon field="created_at" :current="$sortBy" :direction="$sortByDirection"/>
                         </a>
                     </th>
                     <th></th>
@@ -49,7 +49,7 @@
                     </td>
                     <td class="align-middle">{{ $change->attribute }}</td>
                     <td class="align-middle">
-                        <x-date-time :date="$change->created_at"></x-date-time>
+                        <x-date-time :date="$change->created_at"/>
                     </td>
                     <td class="align-middle text-center">
                         <a href="{{ route('watchers.changes.show', [$watcher, $change]) }}" class="btn btn-sm btn-light border">

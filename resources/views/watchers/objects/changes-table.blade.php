@@ -15,10 +15,10 @@
                 <td class="text-center align-middle">{{ $change->id }}</td>
                 <td class="align-middle">{{ $change->attribute }}</td>
                 <td class="align-middle">
-                    <x-date-time :date="$change->ldap_updated_at"></x-date-time>
+                    <x-date-time :date="$change->ldap_updated_at"/>
                 </td>
                 <td class="align-middle">
-                    <x-date-time :date="$change->created_at"></x-date-time>
+                    <x-date-time :date="$change->created_at"/>
                 </td>
                 <td class="align-middle text-center">
                     <a href="{{ route('watchers.changes.show', [$watcher, $change]) }}" class="btn btn-sm btn-light border">

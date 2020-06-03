@@ -30,7 +30,7 @@
                         @endif
                     </td>
                     <td>
-                        <x-date-time :date="$notification->created_at"></x-date-time>
+                        <x-date-time :date="$notification->created_at"/>
                     </td>
                 </tr>
             @empty

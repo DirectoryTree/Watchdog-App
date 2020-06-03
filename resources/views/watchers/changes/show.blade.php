@@ -34,7 +34,7 @@
                             <tr class="{{ in_array($value, $removed) ? 'bg-danger' : '' }}">
                                 <td >
                                     @if($value instanceof \Carbon\Carbon)
-                                        <x-date-time :date="$value"></x-date-time>
+                                        <x-date-time :date="$value"/>
                                     @else
                                         {{ $value }}
                                     @endif
@@ -60,7 +60,7 @@
                             <tr class="{{ in_array($value, $added) ? 'bg-success' : '' }}">
                                 <td>
                                     @if($value instanceof \Carbon\Carbon)
-                                        <x-date-time :date="$value"></x-date-time>
+                                        <x-date-time :date="$value"/>
                                     @else
                                         {{ $value }}
                                     @endif

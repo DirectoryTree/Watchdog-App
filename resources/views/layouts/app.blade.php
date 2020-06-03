@@ -3,7 +3,7 @@
 @inject('cache', 'App\Cache\CountCache)
 
 @push('styles')
-    <livewire:styles></livewire:styles>
+    <livewire:styles/>
 @endpush
 
 @section('body')
@@ -98,7 +98,7 @@
         </div>
     </div>
 
-    <livewire:scripts></livewire:scripts>
+    <livewire:scripts/>
 
 {{--    @foreach (session('flash_notification', collect())->toArray() as $message)--}}
 {{--        <script>--}}

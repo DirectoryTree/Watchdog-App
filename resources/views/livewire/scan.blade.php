@@ -35,7 +35,7 @@
                 @endif
 
                 @if($scan->completed_at)
-                    | Completed <x-date-time :date="$scan->completed_at"></x-date-time>
+                    | Completed <x-date-time :date="$scan->completed_at"/>
                 @endif
             </div>
         </div>

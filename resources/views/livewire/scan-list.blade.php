@@ -24,7 +24,7 @@
     </div>
 
     @forelse($scans as $scan)
-        <livewire:scan :scan="$scan" :key="$scan->id"></livewire:scan>
+        <livewire:scan :scan="$scan" :key="$scan->id"/>
     @empty
         <div class="list-group">
             <div class="list-group-item border-0 shadow-sm text-muted text-center">
