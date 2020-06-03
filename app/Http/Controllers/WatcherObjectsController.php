@@ -74,7 +74,7 @@ class WatcherObjectsController extends Controller
         return view('watchers.objects.changes',[
             'watcher' => $watcher,
             'object' => $object,
-            'changes' => $object->changes()->latest()->paginate(10),
+            'changes' => $object->changes()->latest()->paginate(15),
         ]);
     }
 
@@ -96,7 +96,7 @@ class WatcherObjectsController extends Controller
             'watcher' => $watcher,
             'object' => $object,
             'watchdogs' => $watchdogs,
-            'notifications' => $object->notifications()->latest()->paginate(10),
+            'notifications' => $object->notifications()->latest()->paginate(15),
         ]);
     }
 
@@ -144,7 +144,7 @@ class WatcherObjectsController extends Controller
 
         $days = [];
 
-        foreach (range(1, 90) as $day) {
+        foreach (range(0, 89) as $day) {
             $days[] = now()->subDay($day)->format('Y-m-d');
         }
 
