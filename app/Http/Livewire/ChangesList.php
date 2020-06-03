@@ -49,7 +49,7 @@ class ChangesList extends Component
         $query->orderBy($this->sortBy, $this->sortByDirection);
 
         return view('livewire.changes-list', [
-            'changes' => $query->paginate(10),
+            'changes' => $query->paginate(15),
         ]);
     }
 

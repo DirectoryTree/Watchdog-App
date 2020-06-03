@@ -1,13 +1,13 @@
 <div>
     <div class="row">
         <div class="col">
-            <div class="card shadow-sm border-0">
+            <div class="card">
                 <div class="card-header bg-light d-flex justify-content-between align-items-center border-bottom">
-                    <a href="{{ current_route_filter(['start' => $previous]) }}" title="Previous month" data-turbolinks-scroll class="btn btn-light shadow-sm mb-0">
+                    <a href="{{ current_route_filter(['start' => $previous]) }}" title="Previous month" data-turbolinks-scroll class="btn btn-light border mb-0">
                         <i class="fas fa-chevron-left"></i>
                     </a>
 
-                    <a href="{{ current_route_filter(['start' => $next]) }}" title="Next month" data-turbolinks-scroll class="btn btn-light shadow-sm mb-0 @if($end->isFuture()) disabled @endif">
+                    <a href="{{ current_route_filter(['start' => $next]) }}" title="Next month" data-turbolinks-scroll class="btn btn-light border mb-0 @if($end->isFuture()) disabled @endif">
                         <i class="fas fa-chevron-right"></i>
                     </a>
                 </div>
@@ -101,22 +101,22 @@
                             </div>
                         @endforeach
                     </div>
-
-                    @if($day)
-                        <hr/>
-
-                        <div class="row">
-                            <div class="col">
-                                <h6 class="text-muted text-uppercase text-center font-weight-bold">
-                                    {{ $day->format('F jS Y') }}
-                                </h6>
-
-                                @include('watchers.objects.changes-table', ['watcher' => $watcher, 'changes' => $changesForDay])
-                            </div>
-                        </div>
-                    @endif
                 </div>
             </div>
         </div>
     </div>
+
+    @if($day)
+        <hr/>
+
+        <div class="row">
+            <div class="col">
+                <h6 class="text-muted text-uppercase text-center font-weight-bold">
+                    {{ $day->format('F jS Y') }}
+                </h6>
+
+                @include('watchers.objects.changes-table', ['watcher' => $watcher, 'changes' => $changesForDay])
+            </div>
+        </div>
+    @endif
 </div>

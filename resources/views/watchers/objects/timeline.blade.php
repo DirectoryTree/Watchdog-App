@@ -1,7 +1,7 @@
 @extends('watchers.objects.layout')
 
 @section('tab')
-    <div class="card shadow-sm border-0 mb-4">
+    <div class="card mb-4">
         <div class="card-body">
             <svg class="w-100" preserveAspectRatio="none" height="34" viewBox="0 0 448 34">
                 @foreach($days as $index => $day)
@@ -37,23 +37,4 @@
         :changes="$changes"
         :changes-for-day="$changesForDay"
     ></x-change-calendar>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Attribute</th>
-                <th>Before</th>
-                <th>After</th>
-            </tr>
-        </thead>
-        <tbody>
-        @foreach($accumulatedChanges as $change)
-            <tr>
-                <td>{{ $change['attribute'] }}</td>
-                <td>{{ var_dump($change['before']) }}</td>
-                <td>{{ var_dump($change['after']) }}</td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
 @endsection

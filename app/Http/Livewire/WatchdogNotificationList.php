@@ -59,7 +59,7 @@ class WatchdogNotificationList extends Component
         $query = $watchdog->notifications()->with('object');
 
         return view('livewire.watchdog-notification-list', [
-            'notifications' => $query->orderBy($this->sortBy, $this->sortByDirection)->paginate(10)
+            'notifications' => $query->orderBy($this->sortBy, $this->sortByDirection)->paginate(15)
         ]);
     }
 }

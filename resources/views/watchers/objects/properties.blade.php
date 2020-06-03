@@ -1,11 +1,11 @@
 @extends('watchers.objects.layout')
 
 @section('tab')
-    <div class="table-responsive bg-white shadow-sm rounded">
+    <div class="table-responsive bg-white border rounded">
         <table class="table mb-0">
             <thead>
                 <tr class="text-uppercase text-muted bg-secondary">
-                    <th class="tex">Attribute</th>
+                    <th class="text-right">Attribute</th>
                     <th>Value</th>
                 </tr>
             </thead>
@@ -17,12 +17,12 @@
                         @if(count($values) > 1)
                             <ul class="m-0 list-unstyled">
                                 @foreach($values as $value)
-                                    <li>{{ $value }}</li>
+                                    <li>{{ \Illuminate\Support\Arr::first((array) $value) }}</li>
                                 @endforeach
                             </ul>
                         @else
                             @forelse($values as $value)
-                                {{ $value }}
+                                {{ \Illuminate\Support\Arr::first((array) $value) }}
                             @empty
                                 <em>No value</em>
                             @endforelse

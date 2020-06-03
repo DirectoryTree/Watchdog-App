@@ -1,7 +1,7 @@
 @extends('watchers.objects.layout')
 
 @section('tab')
-    <div class="table-responsive bg-white shadow-sm rounded">
+    <div class="table-responsive bg-white border rounded">
         <table class="table mb-0">
             <thead>
                 <tr class="text-uppercase text-muted bg-secondary">

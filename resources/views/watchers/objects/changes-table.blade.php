@@ -1,13 +1,13 @@
-<div class="table-responsive bg-white shadow-sm rounded">
+<div class="table-responsive bg-white border rounded">
     <table class="table mb-0">
         <thead>
-        <tr class="text-uppercase text-muted bg-secondary">
-            <th class="text-center"># ID</th>
-            <th>Attribute</th>
-            <th><i class="fas fa-clock"></i> Changed</th>
-            <th><i class="fas fa-clock"></i> Detected</th>
-            <th></th>
-        </tr>
+            <tr class="text-uppercase text-muted bg-secondary">
+                <th class="text-center"># ID</th>
+                <th>Attribute</th>
+                <th><i class="fas fa-clock"></i> Changed</th>
+                <th><i class="fas fa-clock"></i> Detected</th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
         @forelse($changes as $change)
@@ -21,7 +21,7 @@
                     <x-date-time :date="$change->created_at"></x-date-time>
                 </td>
                 <td class="align-middle text-center">
-                    <a href="{{ route('watchers.changes.show', [$watcher, $change]) }}" class="btn btn-sm btn-light border shadow-sm">
+                    <a href="{{ route('watchers.changes.show', [$watcher, $change]) }}" class="btn btn-sm btn-light border">
                         View
                     </a>
                 </td>

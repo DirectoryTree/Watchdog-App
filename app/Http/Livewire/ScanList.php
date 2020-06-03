@@ -54,7 +54,7 @@ class ScanList extends Component
         }
 
         return view('livewire.scan-list', [
-            'scans' => $query->paginate(10)
+            'scans' => $query->paginate(15)
         ]);
     }
 

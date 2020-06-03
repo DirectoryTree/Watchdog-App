@@ -1,25 +1,13 @@
 @extends('watchers.layout')
 
 @section('page')
-    <div class="d-flex justify-content-between mb-2">
-        <div>
-            <a href="{{ url()->previous(route('watchers.changes.index', $watcher)) }}" class="btn btn-light shadow-sm">
-                <i class="fas fa-chevron-left"></i> Back to Changes
-            </a>
-        </div>
-
-        <div>
-            <a href="#" class="btn btn-light shadow-sm">
-                View attribute changes
-            </a>
-
-            <a href="#" class="btn btn-light shadow-sm">
-                View object changes
-            </a>
-        </div>
+    <div class="mb-2">
+        <a href="{{ url()->previous(route('watchers.changes.index', $watcher)) }}" class="btn btn-light border">
+            <i class="fas fa-chevron-left"></i> Back to Changes
+        </a>
     </div>
 
-    <div class="card shadow-sm">
+    <div class="card">
         <div class="card-body">
             <h2 class="text-muted"># {{ $change->id }}</h2>
             <a href="{{ route('watchers.objects.show', [$watcher, $change->object]) }}" class="h5 d-block">{{ $change->object->name }}</a>
@@ -34,17 +22,17 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
-                    <table class="table bg-secondary rounded overflow-hidden shadow-sm">
+                <div class="col-md-6 table-responsive">
+                    <table class="table bg-secondary rounded overflow-hidden">
                         <thead>
-                        <tr class="text-center text-uppercase text-muted">
-                            <th>Before</th>
-                        </tr>
+                            <tr class="text-center text-uppercase text-muted">
+                                <th>Before</th>
+                            </tr>
                         </thead>
                         <tbody>
                         @forelse($before as $value)
                             <tr class="{{ in_array($value, $removed) ? 'bg-danger' : '' }}">
-                                <td>
+                                <td >
                                     @if($value instanceof \Carbon\Carbon)
                                         <x-date-time :date="$value"></x-date-time>
                                     @else
@@ -60,12 +48,12 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-6">
-                    <table class="table bg-secondary rounded overflow-hidden shadow-sm">
+                <div class="col-md-6 table-responsive">
+                    <table class="table bg-secondary rounded overflow-hidden">
                         <thead>
-                        <tr class="text-center text-uppercase text-muted">
-                            <th>After</th>
-                        </tr>
+                            <tr class="text-center text-uppercase text-muted">
+                                <th>After</th>
+                            </tr>
                         </thead>
                         <tbody>
                         @forelse($after as $value)
