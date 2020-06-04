@@ -1,7 +1,9 @@
 @if($current == $field)
     @if($direction == 'desc')
-        <i data-feather="chevron-down" width="20"></i>
+        <i class="fas fa-sort-up"></i>
     @else
-        <i data-feather="chevron-up" width="20"></i>
+        <i class="fas fa-sort-down"></i>
     @endif
+@else
+    <i class="fas fa-sort"></i>
 @endif

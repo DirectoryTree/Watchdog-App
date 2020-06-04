@@ -4,33 +4,29 @@
             <thead>
                 <tr class="text-uppercase text-muted bg-secondary">
                     <th class="text-center">
-                        <a href="#" class="d-flex align-items-center justify-content-center" wire:click.prevent="sortBy('id')">
+                        <a href="#" wire:click.prevent="sortBy('id')">
                             # ID
 
                             <x-sort-icon field="id" :current="$sortBy" :direction="$sortByDirection"/>
                         </a>
                     </th>
                     <th>
-                        <a href="#" class="d-flex align-items-center" wire:click.prevent="sortBy('name')">
-                            <i data-feather="box" width="20"></i>
-
-                            <span class="mx-1">Object</span>
+                        <a href="#" wire:click.prevent="sortBy('name')">
+                            Object
 
                             <x-sort-icon field="name" :current="$sortBy" :direction="$sortByDirection"/>
                         </a>
                     </th>
                     <th>
-                        <a href="#" class="d-flex align-items-center" wire:click.prevent="sortBy('attribute')">
+                        <a href="#" wire:click.prevent="sortBy('attribute')">
                             Attribute
 
                             <x-sort-icon field="attribute" :current="$sortBy" :direction="$sortByDirection"/>
                         </a>
                     </th>
                     <th>
-                        <a href="#" class="d-flex align-items-center" wire:click.prevent="sortBy('created_at')">
-                            <i data-feather="clock" width="20"></i>
-
-                            <span class="mx-1">Detected</span>
+                        <a href="#" wire:click.prevent="sortBy('created_at')">
+                            Detected
 
                             <x-sort-icon field="created_at" :current="$sortBy" :direction="$sortByDirection"/>
                         </a>

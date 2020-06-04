@@ -11,10 +11,12 @@
 
         <!-- Scripts -->
         <script src="{{ asset(mix('js/app.js')) }}" defer data-turbolinks-track="reload"></script>
+        <livewire:scripts/>
         @stack('scripts')
 
         <!-- Styles -->
         <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet" data-turbolinks-track="reload">
+        <livewire:styles/>
         @stack('styles')
     </head>
     <body class="h-100">

@@ -28,33 +28,31 @@
             <div class="text-muted">
                 <i class="fas fa-clock"></i>
 
-                @if($scan->failed)
+                @if($scan->completed_at)
+                    {{ $scan->duration }} | Completed <x-date-time :date="$scan->completed_at"/>
+                @elseif($scan->failed)
                     <em>N/A</em>
                 @else
                     {{ $scan->duration ?? 'Waiting...' }}
                 @endif
+             </div>
+         </div>
+     </div>
 
-                @if($scan->completed_at)
-                    | Completed <x-date-time :date="$scan->completed_at"/>
-                @endif
-            </div>
-        </div>
-    </div>
+     @unless($scan->completed_at)
+         <div class="card-footer bg-light">
+             <div class="progress">
+                 @php
+                     $totalStates = count($this->states);
 
-    @unless($scan->completed_at)
-        <div class="card-footer bg-light">
-            <div class="progress">
-                @php
-                    $totalStates = count($this->states);
+                     $currentStates = $scan->progress->count();
 
-                    $currentStates = $scan->progress->count();
+                     $percent = round(intval(($currentStates / $totalStates) * 100), -1);
 
-                    $percent = round(intval(($currentStates / $totalStates) * 100), -1);
+                     $value = $percent > 100 ? 100 : $percent;
+                 @endphp
 
-                    $value = $percent > 100 ? 100 : $percent;
-                @endphp
-
-                <div class="progress-bar" role="progressbar" style="width: {{ $value }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                 <div class="progress-bar" role="progressbar" style="width: {{ $value }}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                     {{ $value }}% - {{ $this->states[$scan->progress->last()->state] ?? '' }}
                 </div>
             </div>

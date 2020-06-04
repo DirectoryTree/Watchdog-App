@@ -14,9 +14,9 @@
                     <div class="col-md-3">
                         <div class="card shadow-sm mb-4">
                             <div class="row justify-content-center my-4">
-                                <div class="col-auto bg-secondary rounded-circle p-4">
-                                    <i data-feather="server" width="75" height="75"></i>
-                                </div>
+                                <h1 class="col-auto bg-secondary rounded-circle p-4">
+                                    <i class="fas fa-server"></i>
+                                </h1>
                             </div>
 
                             <div class="row justify-content-center">

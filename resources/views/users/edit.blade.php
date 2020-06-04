@@ -10,7 +10,7 @@
                 @csrf
                 @method('delete')
                 <button type="submit" class="btn btn-danger shadow-sm" {{ $user->is(auth()->user()) ? 'disabled' : '' }}>
-                    <i data-feather="trash"></i>
+                    <i class="fas fa-trash"></i>
                 </button>
             </form>
         </div>

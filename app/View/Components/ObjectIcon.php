@@ -38,7 +38,7 @@ class ObjectIcon extends Component
                 $icon = 'users';
                 break;
             case TypeResolver::TYPE_COMPUTER:
-                $icon = 'hard-drive';
+                $icon = 'desktop';
                 break;
             case TypeResolver::TYPE_CONTAINER:
                 // Fallthrough.
@@ -46,7 +46,7 @@ class ObjectIcon extends Component
                 $icon = 'folder';
                 break;
             default:
-                $icon = 'help-circle';
+                $icon = 'question-circle';
                 break;
         }
 

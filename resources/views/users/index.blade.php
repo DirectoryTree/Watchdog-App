@@ -26,8 +26,8 @@
 
     <div class="row justify-content-center my-4">
         <div class="col-auto">
-            <a href="{{ url('/') }}" class="btn btn-light shadow-sm d-flex align-items-center">
-                <i data-feather="arrow-left" width="15" height="15"></i>
+            <a href="{{ url('/') }}" class="btn btn-light shadow-sm">
+                <i class="fas fa-arrow-left"></i>
                 Back to Home
             </a>
         </div>

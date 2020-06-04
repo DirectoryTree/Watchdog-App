@@ -4,14 +4,14 @@
             @if(in_array($object->type, ['container', 'domain']))
                 <button class="btn btn-sm btn-light" wire:click="loadChildren">
                     @if($expanded)
-                        <i data-feather="minus" width="15" height="15"></i>
+                        <i class="fas fa-minus"></i>
                     @else
-                        <i data-feather="plus" width="15" height="15"></i>
+                        <i class="fas fa-plus"></i>
                     @endif
                 </button>
             @else
                 <button class="btn btn-sm text-muted" disabled>
-                    <i data-feather="minus" width="15" height="15"></i>
+                    <i class="fas fa-minus"></i>
                 </button>
             @endif
         </div>

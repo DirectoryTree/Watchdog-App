@@ -2,10 +2,6 @@
 
 @inject('cache', 'App\Cache\CountCache)
 
-@push('styles')
-    <livewire:styles/>
-@endpush
-
 @section('body')
     <div class="container-fluid">
         <div class="row">
@@ -24,38 +20,32 @@
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('watchers.show') || request()->routeIs('watchers.dogs.*') ? 'active' : '' }} d-flex align-items-center" href="{{ route('watchers.show', $watcher) }}">
-                                <i data-feather="home"></i> Dashboard
+                                <i class="fas fa-tachometer-alt mr-1"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('watchers.objects.*') ? 'active' : '' }} d-flex align-items-center" href="{{ route('watchers.objects.index', $watcher) }}">
-                                <span class="mr-2">
-                                    <i data-feather="package"></i> Objects
-                                </span>
+                                <span><i class="fas fa-boxes mr-1"></i> Objects</span>
 
-                                <span class="badge badge-light border text-muted badge-pill">
+                                <span class="badge badge-light border text-muted badge-pill ml-2">
                                     <x-large-count :value="$cache->objects($watcher)"/>
                                 </span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('watchers.changes.*') ? 'active' : '' }} d-flex align-items-center" href="{{ route('watchers.changes.index', $watcher) }}">
-                                <span class="mr-2">
-                                    <i data-feather="refresh-cw"></i> Changes
-                                </span>
+                                <span><i class="fas fa-sync mr-1"></i> Changes</span>
 
-                                <span class="badge badge-light border text-muted badge-pill">
+                                <span class="badge badge-light border text-muted badge-pill ml-2">
                                     <x-large-count :value="$cache->changes($watcher)"/>
                                 </span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('watchers.scans.*') ? 'active' : '' }} d-flex align-items-center" href="{{ route('watchers.scans.index', $watcher) }}">
-                                <span class="mr-2">
-                                    <i data-feather="activity"></i> Scans
-                                </span>
+                                <span><i class="fas fa-heartbeat mr-1"></i> Scans</span>
 
-                                <span class="badge badge-light border text-muted badge-pill">
+                                <span class="badge badge-light border text-muted badge-pill ml-2">
                                     <x-large-count :value="$cache->scans($watcher)"/>
                                 </span>
                             </a>
@@ -69,7 +59,7 @@
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('users.index') }}">
-                                <i data-feather="users"></i> Users
+                                <i class="fas fa-users"></i> Users
                             </a>
                         </li>
                     </ul>
@@ -81,7 +71,7 @@
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                <i data-feather="log-out"></i> Sign Out
+                                <i class="fas fa-sign-out-alt"></i> Sign Out
                             </a>
                         </li>
                     </ul>
@@ -97,8 +87,6 @@
             </main>
         </div>
     </div>
-
-    <livewire:scripts/>
 
 {{--    @foreach (session('flash_notification', collect())->toArray() as $message)--}}
 {{--        <script>--}}

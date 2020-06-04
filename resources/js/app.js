@@ -3,23 +3,16 @@ require('bootstrap-datepicker');
 
 const ladda = require('ladda');
 const turbolinks = require('turbolinks');
-const feather = require('feather-icons');
-
-// Boot Turbolinks...
-turbolinks.start();
 
 // Persist scroll position with Turbolinks.
 turbolinks.scroll = {};
 
 document.addEventListener("livewire:load", function(event) {
-    window.livewire.hook('afterDomUpdate', () => {
-        feather.replace();
-    });
+    // Boot Turbolinks...
+    turbolinks.start();
 });
 
 document.addEventListener('turbolinks:load', () => {
-    feather.replace();
-
     // Enable ladda.
     ladda.bind('button[type=submit]');
 
