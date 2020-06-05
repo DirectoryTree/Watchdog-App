@@ -49,18 +49,21 @@ class WatcherObject extends Component
      * @param LdapWatcher $watcher
      * @param LdapObject  $object
      * @param bool        $searching
+     * @param bool        $expanded
      *
      * @return void
      */
-    public function mount(LdapWatcher $watcher, LdapObject $object, $searching = false)
+    public function mount(LdapWatcher $watcher, LdapObject $object, $searching = false, $expanded = false)
     {
         $this->watcher = $watcher;
         $this->object = $object;
-        $this->children = [];
         $this->searching = $searching;
+        $this->children = [];
 
-        if ($this->object->isRoot()) {
-            $this->loadChildren();
+        if ($this->object->isRoot() ? true : $expanded) {
+            $this->expand();
+        } else {
+            $this->collapse();
         }
     }
 
@@ -69,10 +72,21 @@ class WatcherObject extends Component
      *
      * @return void
      */
-    public function loadChildren()
+    public function expand()
     {
-        $this->expanded = $this->object->isRoot() ? true : !$this->expanded;
-        $this->children = $this->expanded ? $this->object->children()->get() : [];
+        $this->expanded = true;
+        $this->children = $this->object->children()->get();
+    }
+
+    /**
+     * Hide the children of the object.
+     *
+     * @return void
+     */
+    public function collapse()
+    {
+        $this->expanded = false;
+        $this->children = [];
     }
 
     /**

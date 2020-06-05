@@ -1,6 +1,6 @@
 <div>
     <div class="mb-2">
-        <input type="search" class="form-control" placeholder="Search..." wire:model="search">
+        <input type="search" wire:model="search" placeholder="Search..." class="form-control">
     </div>
 
     <div class="list-group">
@@ -12,7 +12,7 @@
                 :key="$object->id"
             />
         @empty
-            <div class="list-group-item shadow-sm text-muted font-weight-bold">
+            <div class="list-group-item text-muted">
                 @if($search)
                     No search results.
                 @else

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\WatchdogRepository;
-use DirectoryTree\Watchdog\Ldap\Transformers\AttributeTransformer;
 use DirectoryTree\Watchdog\LdapWatcher;
+use DirectoryTree\Watchdog\Ldap\Transformers\AttributeTransformer;
 
 class WatcherObjectsController extends Controller
 {

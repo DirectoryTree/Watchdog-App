@@ -1,6 +1,3 @@
-/*
- * Sidebar
- */
 .sidebar {
     position: fixed;
     top: 0;
@@ -35,20 +32,10 @@
     color: $text-muted;
 }
 
-.sidebar .nav-link .feather {
-    margin-right: 4px;
-    color: $text-muted;
-}
-
 .sidebar .nav-link.active {
     color: $primary;
     border:$border-width solid $border-color;
     border-radius: $border-radius;
-}
-
-.sidebar .nav-link:hover .feather,
-.sidebar .nav-link.active .feather {
-    color: inherit;
 }
 
 .sidebar-heading {

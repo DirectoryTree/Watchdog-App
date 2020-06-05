@@ -23,9 +23,9 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="text-muted">Last Change</h6>
+                    <h6 class="text-muted">Last Change Detected</h6>
                     @if($change = $object->changes()->latest()->first())
-                        <h2 class="mb-0">{{ $change->ldap_updated_at->diffForHumans() }}</h2>
+                        <h2 class="mb-0">{{ $change->created_at->diffForHumans() }}</h2>
                     @else
                         <h2 class="mb-0">Never</h2>
                     @endif
@@ -35,15 +35,30 @@
     </div>
 
     @if($object->children()->count() > 0)
-        <h3>Nested Objects</h3>
+        <div class="mb-4">
+            <h4>Nested Objects</h4>
 
-        <div class="list-group">
-            <livewire:watcher-object
-                :watcher="$watcher"
-                :object="$object"
-                :searching="!empty($search)"
-                :key="$object->id"
-            />
+            <div class="list-group">
+                <livewire:watcher-object
+                    :watcher="$watcher"
+                    :object="$object"
+                    :searching="!empty($search)"
+                    :key="$object->id"
+                    :expanded="true"
+                />
+            </div>
         </div>
     @endif
+
+    <div class="row row-cols-1 row-cols-xl-2">
+        <div class="col">
+            <h4>General</h4>
+        </div>
+
+        <div class="col">
+            @if($object->type == \DirectoryTree\Watchdog\Ldap\TypeResolver::TYPE_GROUP)
+                <livewire:object-members :object="$object"></livewire:object-members>
+            @endif
+        </div>
+    </div>
 @endsection

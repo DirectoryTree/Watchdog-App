@@ -12,7 +12,24 @@
 // Ladda
 @import '~ladda/dist/ladda-themeless.min.css';
 
+// Sidebar.
 @import 'sidebar';
+
+.navbar {
+    .navbar-collapse {
+        .active {
+            color: $primary;
+            border: $border-width solid $border-color;
+            border-radius: $border-radius;
+            padding-left: $spacer;
+            padding-right: $spacer;
+        }
+
+        > .navbar-text {
+            font-size: .75rem;
+        }
+    }
+}
 
 // Fixes tables in cards.
 .card-body .table tr:first-child td,th {

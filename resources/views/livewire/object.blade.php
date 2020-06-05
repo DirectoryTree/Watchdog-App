@@ -2,13 +2,15 @@
     <div class="d-flex justify-content-between align-items-center">
         <div class="flex-shrink-1 mr-2">
             @if(in_array($object->type, ['container', 'domain']))
-                <button class="btn btn-sm btn-light" wire:click="loadChildren">
-                    @if($expanded)
+                @if($expanded)
+                    <button class="btn btn-sm btn-light" wire:click="collapse">
                         <i class="fas fa-minus"></i>
-                    @else
+                    </button>
+                @else
+                    <button class="btn btn-sm btn-light" wire:click="expand">
                         <i class="fas fa-plus"></i>
-                    @endif
-                </button>
+                    </button>
+                @endif
             @else
                 <button class="btn btn-sm text-muted" disabled>
                     <i class="fas fa-minus"></i>
@@ -38,7 +40,6 @@
     </div>
 
     @if(count($children) > 0)
-
         <div class="list-group mt-2">
             @foreach($children as $child)
                 <livewire:watcher-object

@@ -13,13 +13,6 @@ class WatcherObjectList extends Component
     public $watcher;
 
     /**
-     * The LDAP watcher objects.
-     *
-     * @var \Illuminate\Database\Eloquent\Collection
-     */
-    public $objects;
-
-    /**
      * The search string.
      *
      * @var string
@@ -43,15 +36,16 @@ class WatcherObjectList extends Component
      */
     public function render()
     {
-        if (empty($this->search)) {
-            $this->objects = $this->watcher->objects()->roots()->get();
+        $query = $this->watcher->objects();
+
+        if ($this->search) {
+            $query->with('parent')->where('name', 'like', "%{$this->search}%");
         } else {
-            $this->objects = $this->watcher->objects()
-                ->with('parent')
-                ->where('name', 'like', "%{$this->search}%")
-                ->get();
+            $query->roots();
         }
 
-        return view('livewire.object-list');
+        return view('livewire.object-list', [
+            'objects' => $query->get(),
+        ]);
     }
 }
