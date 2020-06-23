@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Spatie\Flash\Flash;
 use Illuminate\Support\ServiceProvider;
 use App\Observers\LdapScanProgressObserver;
 use DirectoryTree\Watchdog\LdapScanProgress;
@@ -28,5 +29,11 @@ class AppServiceProvider extends ServiceProvider
         LdapScanProgress::observe(
             LdapScanProgressObserver::class
         );
+
+        Flash::levels([
+            'success' => 'alert-success',
+            'warning' => 'alert-warning',
+            'error' => 'alert-error',
+        ]);
     }
 }
