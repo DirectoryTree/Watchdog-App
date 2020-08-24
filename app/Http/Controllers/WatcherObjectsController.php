@@ -17,7 +17,21 @@ class WatcherObjectsController extends Controller
      */
     public function index(LdapWatcher $watcher)
     {
-        return view('watchers.objects.index', ['watcher' => $watcher]);
+        $query = $watcher->objects();
+
+        if ($search = request('search')) {
+            $opened = false;
+            $query->with('parent')->where('name', 'like', "%$search%");
+        } else {
+            $opened = true;
+            $query->roots()->with('children');
+        }
+
+        return view('watchers.objects.index', [
+            'watcher' => $watcher,
+            'objects' => $query->get(),
+            'opened' => $opened,
+        ]);
     }
 
     /**

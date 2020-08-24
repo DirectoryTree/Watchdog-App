@@ -10,14 +10,10 @@
         <title>{{ config('app.name', 'Watchdog') }}</title>
 
         <!-- Scripts -->
-        <script src="{{ asset(mix('js/app.js')) }}" defer data-turbolinks-track="reload"></script>
-        <livewire:scripts/>
-        @stack('scripts')
+        <script src="{{ asset(mix('js/app.js')) }}" defer></script>
 
         <!-- Styles -->
-        <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet" data-turbolinks-track="reload">
-        <livewire:styles/>
-        @stack('styles')
+        <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet">
     </head>
     <body class="h-100">
         @yield('body')

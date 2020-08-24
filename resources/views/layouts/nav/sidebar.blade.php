@@ -1,4 +1,4 @@
-<nav class="col-md-4 col-lg-3 d-md-block bg-light sidebar border-right collapse">
+<nav class="col-md-4 col-lg-3 col-xl-2 d-md-block bg-light sidebar border-right collapse">
     <div class="d-flex justify-content-center py-4">
         <a href="{{ url('/') }}">
             @include('layouts.nav.logo')

@@ -15,7 +15,7 @@
                         <hr/>
                     @endunless
 
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}" up-target="body">
                         @csrf
 
                         <div class="form-group">

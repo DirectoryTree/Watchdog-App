@@ -1,43 +1,61 @@
 require('./bootstrap');
+
+require('unpoly');
+
 require('bootstrap-datepicker');
 
-const ladda = require('ladda');
-const turbolinks = require('turbolinks');
+const Ladda = require('ladda');
+const Swal = require('sweetalert2');
 
-// Persist scroll position with Turbolinks.
-turbolinks.scroll = {};
-
-document.addEventListener("livewire:load", function(event) {
-    // Boot Turbolinks...
-    turbolinks.start();
+up.compiler('button[type=submit]', (element) => {
+    Ladda.bind(element);
 });
 
-document.addEventListener('turbolinks:load', () => {
-    // Enable ladda.
-    ladda.bind('button[type=submit]');
+up.compiler('[data-toggle="tooltip"]', (element) => {
+    $(element).tooltip();
+});
 
-    // Capture scroll position on specific links.
-    let elements = document.querySelectorAll("[data-turbolinks-scroll]");
+up.compiler('[data-toggle="popover"]', (element) => {
+    $(element).popover();
+});
 
-    elements.forEach((element) => {
-        element.addEventListener("click", () => {
-            turbolinks.scroll['top'] = document.scrollingElement.scrollTop;
-        });
+up.compiler('[data-toggle="popover"]', (element) => {
+    $(element).datepicker();
+});
 
-        element.addEventListener("submit", () => {
-            turbolinks.scroll['top'] = document.scrollingElement.scrollTop;
-        });
+up.compiler('[up-flash]', (element, data) => {
+    Swal.fire({
+        icon: data.level,
+        title: data.title,
+        text: data.message,
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
     });
-
-    $('[data-toggle="tooltip"]').tooltip();
-    $('[data-toggle="popover"]').popover();
-    $('.datepicker').datepicker();
 });
 
-document.addEventListener('turbolinks:render', () => {
-    if (turbolinks.scroll['top']) {
-        document.scrollingElement.scrollTo(0, Turbolinks.scroll['top']);
-    }
+up.compiler('[poll]', (element) => {
+    let interval = parseInt(element.getAttribute('poll') || 5000);
 
-    turbolinks.scroll = {};
+    let timer = setInterval(() => {
+        // If there's a focused element in the poll, we'll prevent updating.
+        if (element.querySelector('[focused=true]')) {
+            return;
+        }
+
+        if (! document.hidden) {
+            up.reload(element);
+        }
+
+    }, interval);
+
+    return function() {
+        clearInterval(timer)
+    };
 });

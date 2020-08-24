@@ -3,39 +3,32 @@
 @inject('cache', 'App\Cache\CountCache')
 
 @section('body')
+    <div up-id="notifications" up-hungry>
+        @if (flash()->message)
+            <div
+                up-flash
+                up-data="{{ json_encode(['message' => flash()->message, 'level' => flash()->level]) }}">
+            </div>
+        @endif
+    </div>
+
+    {{ session()->forget('laravel_flash_message') }}
+
     <div class="container-fluid">
         <div class="row">
             @php($watchers = app(\DirectoryTree\Watchdog\WatcherRepository::class)->all())
 
             @include('layouts.nav.sidebar')
 
-            <main role="main" class="col-md-8 ml-sm-auto col-lg-9 py-2 py-md-4 px-md-4">
+            <main role="main" class="col-md-8 col-lg-9 col-xl-10 ml-sm-auto py-2 py-md-4 px-md-4">
                 <div class="d-block d-md-none mb-2">
                     @include('layouts.nav.mobile')
                 </div>
 
-                @yield('content')
+                <div id="content">
+                    @yield('content')
+                </div>
             </main>
         </div>
     </div>
-
-{{--    @foreach (session('flash_notification', collect())->toArray() as $message)--}}
-{{--        <script>--}}
-{{--            Swal.fire({--}}
-{{--                type: "{{ $message['level'] }}",--}}
-{{--                title: "{{ $message['message'] }}",--}}
-{{--            });--}}
-{{--        </script>--}}
-{{--    @endforeach--}}
-
-{{--    {{ session()->forget('flash_notification') }}--}}
-
-{{--    <script>--}}
-{{--        window.livewire.on('notification', (notification) => {--}}
-{{--            Swal.fire({--}}
-{{--                type: notification.type,--}}
-{{--                title: notification.title,--}}
-{{--            });--}}
-{{--        });--}}
-{{--    </script>--}}
 @endsection
